@@ -20,12 +20,16 @@
     var CONFIG = {"hostname":"github.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","author":"Lejun Jiang's Blog","author_title":"BSE in MechE @ UofM | BSE in ECE @ SJTU 20'","width":300,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Lejun Jiang&#39;s Blog">
+  <meta name="description" content="Welcome to my website! I am currently an undergraduate student at the University of Michigan and Shanghai Jiao Tong University, and I am going to pursue my Masters degree at the University of Pennsylv">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Home Page">
 <meta property="og:url" content="https://github.com/LejunJiang/LejunJiang.github.io.git/index.html">
 <meta property="og:site_name" content="Lejun Jiang&#39;s Blog">
+<meta property="og:description" content="Welcome to my website! I am currently an undergraduate student at the University of Michigan and Shanghai Jiao Tong University, and I am going to pursue my Masters degree at the University of Pennsylv">
 <meta property="og:locale" content="en_US">
-<meta property="article:author" content="&lt;font size &#x3D; 0.8&gt; Actively exploring Engineering &amp; Photography &lt;&#x2F;font&gt;">
+<meta property="article:published_time" content="2020-05-16T18:03:05.517Z">
+<meta property="article:modified_time" content="2020-05-16T18:03:05.517Z">
+<meta property="article:author" content="Lejun (Harald) Jiang">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://github.com/LejunJiang/LejunJiang.github.io.git/">
@@ -35,13 +39,14 @@
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
+    isHome : false,
     isPost : false,
     lang   : 'en'
   };
 </script>
 
-  <title>Lejun Jiang's Blog</title>
+  <title>Home Page | Lejun Jiang's Blog
+</title>
   
 
 
@@ -117,9 +122,34 @@
     <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
 
   </li>
-        <li class="menu-item menu-item-archives">
+        <li class="menu-item menu-item-about">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-curriculum-vitae">
+
+    <a href="/curriculum-vitae/" rel="section"><i class="fa fa-file fa-fw"></i>Curriculum Vitae</a>
+
+  </li>
+        <li class="menu-item menu-item-quick-view">
+
+    <a href="/quick-view/" rel="section"><i class="fa fa-bookmark fa-fw"></i>Quick View</a>
+
+  </li>
+        <li class="menu-item menu-item-projects">
+
+    <a href="/projects/" rel="section"><i class="fa fa-hammer fa-fw"></i>Projects</a>
+
+  </li>
+        <li class="menu-item menu-item-travel-journels">
+
+    <a href="/travel-journels/" rel="section"><i class="fa fa-plane-departure fa-fw"></i>Travel Journels</a>
+
+  </li>
+        <li class="menu-item menu-item-my-photo-gallery">
+
+    <a href="/photo-gallery/" rel="section"><i class="fa fa-camera-retro fa-fw"></i>My Photo Gallery</a>
 
   </li>
   </ul>
@@ -136,6 +166,7 @@
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
+  <div class="reading-progress-bar"></div>
 
   <a href="https://github.com/LejunJiang" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
@@ -144,82 +175,50 @@
       <div class="main-inner">
         <div class="content-wrap">
           
+  
+  
 
-          <div class="content index posts-expand">
+          <div class="content page posts-expand">
             
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://github.com/LejunJiang/LejunJiang.github.io.git/2020/04/30/hello-world/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="<font size = 0.8> Actively exploring Engineering & Photography </font>">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lejun Jiang's Blog">
-    </span>
+    
+    
+    
+    <div class="post-block" lang="en">
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/30/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
+<h1 class="post-title" itemprop="name headline">Home Page
+</h1>
 
-              <time title="Created: 2020-04-30 14:13:42" itemprop="dateCreated datePublished" datetime="2020-04-30T14:13:42-04:00">2020-04-30</time>
-            </span>
+<div class="post-meta">
+  
 
-          
+</div>
 
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+</header>
 
       
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+      
+      
+      <div class="post-body">
+          <p>Welcome to my website! I am currently an undergraduate student at the University of Michigan and Shanghai Jiao Tong University, and I am going to pursue my Masters degree at the University of Pennsylvania starting from the upcoming Fall 2020 semester (hopefully the COVID-19 pandemic would get better at that time). <br /><br>At this site you will find the stories of me, the photos I have taken, as well as any project that I have been working or have already worked on. Have fun and feel free to contact me through email (<a href="mailto:lejunj@umich.edu">lejunj@umich.edu</a> or <a href="mailto:lejunj98@gmail.com">lejunj98@gmail.com</a>) :)</p>
+<h1 id="About"><a href="#About" class="headerlink" title="About"></a>About</h1><p>This page contains a brief story of me: where I came from, what fun things I have done, and how I got to this stage in life.</p>
+<h1 id="Curriculum-Vitae"><a href="#Curriculum-Vitae" class="headerlink" title="Curriculum Vitae"></a>Curriculum Vitae</h1><p>My Curriculum Vitae is presented on this page if you want to learn more about my past experiences, classes, skills, and any awards/scholarship received.</p>
+<h1 id="Quick-View"><a href="#Quick-View" class="headerlink" title="Quick View"></a>Quick View</h1><p>This page contains a quick view of all my posts regarding projects, travel journels, as well as my photos.</p>
+<h1 id="Projects"><a href="#Projects" class="headerlink" title="Projects"></a>Projects</h1><p>I will share information, updates and interesting features about my past and current projects on this page, these include competitions, course projects, as well as research projects.</p>
+<h1 id="Travel-Journels"><a href="#Travel-Journels" class="headerlink" title="Travel Journels"></a>Travel Journels</h1><p>I am fond of travelling and photography. As a result, I try to record these precious moments by words and photos. However, I was too lazy to write journels for every travel of mine :) Hopefully I could become diligent one day to come up with more updates.</p>
+<h1 id="My-Photo-Gallery"><a href="#My-Photo-Gallery" class="headerlink" title="My Photo Gallery"></a>My Photo Gallery</h1><p>This page contains the favourate photos taken by myself. Hopefully you will enjoy them!</p>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+      </div>
+      
+      
       
     </div>
+    
 
     
     
     
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
-  
-
 
 
           </div>
@@ -270,25 +269,19 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#About"><span class="nav-number">1.</span> <span class="nav-text">About</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Curriculum-Vitae"><span class="nav-number">2.</span> <span class="nav-text">Curriculum Vitae</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Quick-View"><span class="nav-number">3.</span> <span class="nav-text">Quick View</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Projects"><span class="nav-number">4.</span> <span class="nav-text">Projects</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Travel-Journels"><span class="nav-number">5.</span> <span class="nav-text">Travel Journels</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#My-Photo-Gallery"><span class="nav-number">6.</span> <span class="nav-text">My Photo Gallery</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="<font size = 0.8> Actively exploring Engineering & Photography </font>"
+    <img class="site-author-image" itemprop="image" alt="Lejun (Harald) Jiang"
       src="/images/avatar.jpg">
-  <p class="site-author-name" itemprop="name"><font size = 0.8> Actively exploring Engineering & Photography </font></p>
-  <div class="site-description" itemprop="description"></div>
+  <p class="site-author-name" itemprop="name">Lejun (Harald) Jiang</p>
+  <div class="site-description" itemprop="description"><font size = 0.8> Actively exploring Engineering & Photography </font></div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">1</span>
-          <span class="site-state-item-name">posts</span>
-        </a>
-      </div>
   </nav>
 </div>
   <div class="links-of-author motion-element">
@@ -380,8 +373,41 @@
 
 
 
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
 
 
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
 
 
   
