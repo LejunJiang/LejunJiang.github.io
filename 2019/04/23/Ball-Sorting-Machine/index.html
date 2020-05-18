@@ -47,7 +47,7 @@
 <meta property="og:image" content="https://github.com/2019/04/23/Ball-Sorting-Machine/Picture18.PNG">
 <meta property="og:image" content="https://github.com/2019/04/23/Ball-Sorting-Machine/Picture19.PNG">
 <meta property="article:published_time" content="2019-04-23T19:01:57.000Z">
-<meta property="article:modified_time" content="2020-05-18T20:50:21.614Z">
+<meta property="article:modified_time" content="2020-05-18T21:17:00.713Z">
 <meta property="article:author" content="Lejun (Harald) Jiang">
 <meta property="article:tag" content="control system">
 <meta property="article:tag" content="product design">
@@ -263,7 +263,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-18 16:50:21" itemprop="dateModified" datetime="2020-05-18T16:50:21-04:00">2020-05-18</time>
+                <time title="Modified: 2020-05-18 17:17:00" itemprop="dateModified" datetime="2020-05-18T17:17:00-04:00">2020-05-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -308,6 +308,8 @@
 
       
         <p>This is a design and manufacturing project I conducted for the course ME 350 at the University of Michigan. My collaborators on this project are Holden Chevalier, Juevara Issa, Junjie Luo, and Avant Mehta.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/RTeog5QUwEs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 <h1 id="Goal"><a href="#Goal" class="headerlink" title="Goal"></a>Goal</h1><p>The goal of project “ball sorting machine” is to design and build an efficient mechanism that uses a DC electric motor in a closed loop position control system to move a cup to the desired position and orientation accurately enough to catch each ball and drop it into different places based on the color of the ball.</p>
 <br>
 
@@ -401,7 +403,7 @@
 <h1 id="Controller-Design"><a href="#Controller-Design" class="headerlink" title="Controller Design"></a>Controller Design</h1><p>A combined feedforward (gravity compensation) and feedback (PID) control was implemented on the mechanism.</p>
 <br>
 
-<p>We used Adams simulation to quantify the effect of gravity on our mechanism. We applied a still motion on the leftmost and right most positions and obtained two values reflecting how much torque is required to hold our mechanism. Since our mechanism must be able to start its motion overcoming the gravity form both the leftmost and rightmost motion, this gravity compensation method is very important.</p>
+<p>We combined physical testing and ADAMS simulation to quantify the effect of gravity on our mechanism. We applied a still motion on the leftmost and right most positions and obtained two values reflecting how much torque is required to hold our mechanism. Since our mechanism must be able to start its motion overcoming the gravity form both the leftmost and rightmost motion, this gravity compensation method is very important for the accuracy of our controller.</p>
 <br>
 
 <p>PID feedback control is also important to achieve a stable and efficient system. Due to the benefit of using state machines in our Arduino codes, we were allowed to test and tune the gains for each state individually. The result are shown below.</p>

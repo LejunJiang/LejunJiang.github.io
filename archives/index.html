@@ -37,13 +37,13 @@
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : false,
+    isHome : true,
     isPost : false,
     lang   : 'en'
   };
 </script>
 
-  <title>Archive | Lejun Jiang's Blog</title>
+  <title>Lejun Jiang's Blog</title>
   
 
 
@@ -201,152 +201,761 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://github.com/LejunJiang/LejunJiang.github.io.git/2020/05/18/Glove-Box-Project/">
 
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Lejun (Harald) Jiang">
+      <meta itemprop="description" content="<font size="0.9"> Actively exploring Engineering & Photography </font>">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lejun Jiang's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/18/Glove-Box-Project/" class="post-title-link" itemprop="url">Glovebox Pressure Control System for Redox Flow Battery</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-05-18 08:21:02 / Modified: 15:47:52" itemprop="dateCreated datePublished" datetime="2020-05-18T08:21:02-04:00">2020-05-18</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/projects/" itemprop="url" rel="index"><span itemprop="name">Projects</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/05/18/Glove-Box-Project/" class="post-meta-item leancloud_visitors" data-flag-title="Glovebox Pressure Control System for Redox Flow Battery" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2020/05/18/Glove-Box-Project/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/05/18/Glove-Box-Project/" itemprop="commentCount"></span>
+    </a>
+  </span>
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">Um..! 6 posts in total. Keep on posting.</span>
-      </div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2020</span>
+          <p>This is the capstone design project I conducted for the course ME 450 at the University of Michigan. My collaborators on this project are Tiantian Li, Junjie Luo, and Haoze Hu.</p>
+<h1 id="Goal"><a href="#Goal" class="headerlink" title="Goal"></a>Goal</h1><p>The goal of project “Glovebox Pressure Control System for Redox Flow Battery” is to develop a pressure sensing and control system that will maintain the pressure of a glovebox between variable set limits with automated gas inlet/exit valves. This system is intended to help the Kwabi lab at the University of Michigan create a platform for the testing of novel chemistries for redox-flow batteries that are sensitive to atmosphere.</p>
+<br>
+
+<p><img src="/2020/05/18/Glove-Box-Project/Picture1.png" alt="Schematic of the glovebox with key components labeled."><span class="image-caption">Schematic of the glovebox with key components labeled.</span></p>
+<br>
+
+<h1 id="Requirements-amp-Engineering-Specifications"><a href="#Requirements-amp-Engineering-Specifications" class="headerlink" title="Requirements &amp; Engineering Specifications"></a>Requirements &amp; Engineering Specifications</h1><p>Relevant information was collected from various sources including literature review, benchmarking products and interviews with researchers from the Kwabi lab. The requirements and engineering specifications of the pressure sensing and control system are thus extrapolated and can be categorized into operation, safety and user related requirements. Key challenges of this project lie in the high-accuracy and high-resolution (±0.1 mbar) sensing and regulating of pressure in a low range of 0 – 20 mbar.</p>
+<br>
+
+<p><img src="/2020/05/18/Glove-Box-Project/Picture2.PNG" alt="The requirements and their corresponding importance as well as engineering specification associated with the glove box pressure control system."><span class="image-caption">The requirements and their corresponding importance as well as engineering specification associated with the glove box pressure control system.</span></p>
+<br>
+
+<h1 id="Concept-Generation"><a href="#Concept-Generation" class="headerlink" title="Concept Generation"></a>Concept Generation</h1><p>Concepts generation process used two major methods, concept map and physical decomposition. Concept map helped incorporate broad aspects around the pressure control goal. Influencing aspects are connected and different traits of aspects are distinguished with colors. One important part of the concept map is the actuation methods to control the pressure. From the ideal gas law, pressure control can be changed with the amount of gas, volume and temperature. From these three directions, three concepts are developed. Physical decomposition helped break the complex systems into separate subsystems, including sensor, control, power and actuation. Actuation system are decomposed for each concept. These concepts are then evaluated with a Pugh chart, and the method to control the inflow and outflow of the gas with electronic valves are selected as the final solution with its high feasibility and potentially low cost.</p>
+<br>
+
+<p><img src="/2020/05/18/Glove-Box-Project/Picture3.png" alt="Concept map of the pressure control system. Different influential aspects are distinguished with colors, and the methods leads to three directions of concepts."><span class="image-caption">Concept map of the pressure control system. Different influential aspects are distinguished with colors, and the methods leads to three directions of concepts.</span></p>
+<br>
+
+<p><img src="/2020/05/18/Glove-Box-Project/Picture4.png" alt="Physical decomposition of the system that controls the inflow and outflow of gas with electrical valves."><span class="image-caption">Physical decomposition of the system that controls the inflow and outflow of gas with electrical valves.</span></p>
+<br>
+
+<h1 id="Final-Design"><a href="#Final-Design" class="headerlink" title="Final Design"></a>Final Design</h1><p>Our final design uses electric valves (flow coefficients Cv = 0.08 &amp; 0.6) to control the gas in flow and out flow, and an on-off feedback control algorithm was performed using a pressure sensor and the Arduino board. Through engineering analysis, formula was generated to simulate the system behavior, which were used to select the flow coefficients of the electric valves and verify the engineering specifications. </p>
+<br>
+
+<p><img src="/2020/05/18/Glove-Box-Project/Picture5.png" alt="Illustration of the components of the final design solution."><span class="image-caption">Illustration of the components of the final design solution.</span></p>
+<br>
+
+<h1 id="General-Validation-Process"><a href="#General-Validation-Process" class="headerlink" title="General Validation Process"></a>General Validation Process</h1><p>A full validation plan was developed for physical prototypes, and key specifications were validated virtually through performance simulation, including the disturbance rejection induced from glove movement volume change. </p>
+<br>
+
+<p><img src="/2020/05/18/Glove-Box-Project/Picture6.PNG" alt="Validation Process Chart. Pressure controlling components are first validated with their functions and then assembled to the glovebox to verify the specifications and validate its functions."><span class="image-caption">Validation Process Chart. Pressure controlling components are first validated with their functions and then assembled to the glovebox to verify the specifications and validate its functions.</span></p>
+<br>
+
+<h1 id="Performance-by-simulation"><a href="#Performance-by-simulation" class="headerlink" title="Performance (by simulation)"></a>Performance (by simulation)</h1><p>The system was able to meet the specifications under reasonably slow glove movements. </p>
+<br>
+
+<p><img src="/2020/05/18/Glove-Box-Project/Picture7.PNG" alt="Simulation of maximum possible pressure change (20 mbar) for both the gas inflow (left) and outflow (right) cases at different glove box volumes. The simulation results show that the pressure changes more quickly at smaller volumes."><span class="image-caption">Simulation of maximum possible pressure change (20 mbar) for both the gas inflow (left) and outflow (right) cases at different glove box volumes. The simulation results show that the pressure changes more quickly at smaller volumes.</span></p>
+<br>
+
+<h1 id="Future-Improvements"><a href="#Future-Improvements" class="headerlink" title="Future Improvements"></a>Future Improvements</h1><p>In order to achieve faster glove movements, necessary improvements may be made to the system. There are two potential methods to solve this problem. The first method is to use an electric valve with changeable Cv value. When the difference between the current pressure and the desired pressure is big, the electric valve will work at high Cv value. As the current pressure is approaching the desired value, Cv value will be correspondingly decreasing to less than 0.1 for stability and accuracy. Accordingly, the program should be improved to control Cv value in real time based on the difference between the current pressure and the desired pressure. Although the electric valve with changeable Cv value works better, it costs much more.</p>
+<br>
+
+<p>If budget is limited, the second method can be considered: adding a pump to the pressure control system. The purpose of the pump is similar to what is discussed in the first method. When the difference between the current pressure and the desired pressure is large, the pump will be turned on to accelerate gas absorption/exhaustion. When the current pressure is close to the desired pressure, the pump will be shut down for stability and accuracy. Also, the program should be improved to control the pump in real time based on the difference between the current pressure and the desired pressure. In this case, the pump’s delay time should also be considered in the program. Compared with the former one, this method is cheaper, but the circuit will be more complex, and more parameters are introduced to the system (the pump’s delay time).</p>
+<br>
+
+<h1 id="Conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions"></a>Conclusions</h1><p>In general, this project achieves the pressure control function available in advanced and expensive glovebox workstations, which is built upon regular glovebox containers with a relatively low cost. It is a useful solution for the labs who need pressure-controlled testing environment but have restricted budgets.</p>
+
+      
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-05-18T08:21:02-04:00"
-              content="2020-05-18">
-          05-18
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/05/18/Glove-Box-Project/" itemprop="url">
-            <span itemprop="name">Glovebox Pressure Control System for Redox Flow Battery</span>
-          </a>
-      </div>
-
-    </header>
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
   </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-05-17T16:31:22-04:00"
-              content="2020-05-17">
-          05-17
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/05/17/Arizona,%20USA/" itemprop="url">
-            <span itemprop="name">Arizona, USA</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-05-17T16:08:59-04:00"
-              content="2020-05-17">
-          05-17
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/05/17/Utah,%20USA/" itemprop="url">
-            <span itemprop="name">Utah, USA</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-05-17T13:32:08-04:00"
-              content="2020-05-17">
-          05-17
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/05/17/Nevada,%20USA/" itemprop="url">
-            <span itemprop="name">Nevada, USA</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-05-16T23:06:14-04:00"
-              content="2020-05-16">
-          05-16
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/05/16/California,%20USA/" itemprop="url">
-            <span itemprop="name">California, USA</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-    <div class="collection-year">
-      <span class="collection-header">2019</span>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-04-23T15:01:57-04:00"
-              content="2019-04-23">
-          04-23
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2019/04/23/Ball-Sorting-Machine/" itemprop="url">
-            <span itemprop="name">Ball Sorting Machine</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-
-    </div>
-  </div>
   
   
   
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://github.com/LejunJiang/LejunJiang.github.io.git/2020/05/17/Arizona,%20USA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Lejun (Harald) Jiang">
+      <meta itemprop="description" content="<font size="0.9"> Actively exploring Engineering & Photography </font>">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lejun Jiang's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/17/Arizona,%20USA/" class="post-title-link" itemprop="url">Arizona, USA</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-05-17 16:31:22" itemprop="dateCreated datePublished" datetime="2020-05-17T16:31:22-04:00">2020-05-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-05-18 15:03:45" itemprop="dateModified" datetime="2020-05-18T15:03:45-04:00">2020-05-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/my-photo-gallery/" itemprop="url" rel="index"><span itemprop="name">My Photo Gallery</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/05/17/Arizona,%20USA/" class="post-meta-item leancloud_visitors" data-flag-title="Arizona, USA" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2020/05/17/Arizona,%20USA/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/05/17/Arizona, USA/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>During the winter break between Dec. 2019 and Jan. 2020, I went on a great trip across the US: starting from Michigan, I went to Illinois, took a train (the California Zephyr) to California, then drove to Nevada, Utah, and in the end Arizona. This trip took us 18 days and we found great joy in it, especially in photography. <br><br>We spent a total of 6 days in Arizona, including 1 day at Page, 3 days at the Grand Canyon, and 2 days at Phoenix. I have only posted the photos at the Grand Canyon for now. I will update the others in the future.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/05/17/Arizona,%20USA/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://github.com/LejunJiang/LejunJiang.github.io.git/2020/05/17/Utah,%20USA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Lejun (Harald) Jiang">
+      <meta itemprop="description" content="<font size="0.9"> Actively exploring Engineering & Photography </font>">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lejun Jiang's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/17/Utah,%20USA/" class="post-title-link" itemprop="url">Utah, USA</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-05-17 16:08:59" itemprop="dateCreated datePublished" datetime="2020-05-17T16:08:59-04:00">2020-05-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-05-18 15:04:12" itemprop="dateModified" datetime="2020-05-18T15:04:12-04:00">2020-05-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/my-photo-gallery/" itemprop="url" rel="index"><span itemprop="name">My Photo Gallery</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/05/17/Utah,%20USA/" class="post-meta-item leancloud_visitors" data-flag-title="Utah, USA" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2020/05/17/Utah,%20USA/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/05/17/Utah, USA/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>During the winter break between Dec. 2019 and Jan. 2020, I went on a great trip across the US: starting from Michigan, I went to Illinois, took a train (the California Zephyr) to California, then drove to Nevada, Utah, and in the end Arizona. This trip took us 18 days and we found great joy in it, especially in photography. <br><br>We spent a total of 2 days in Utah, most of which were spent on in the Monument Valley. It is one of the locations where the film “Forest Gump” was shot. The geology there was unique and beautiful: definitely a meaningful place to visit for a trip.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/05/17/Utah,%20USA/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://github.com/LejunJiang/LejunJiang.github.io.git/2020/05/17/Nevada,%20USA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Lejun (Harald) Jiang">
+      <meta itemprop="description" content="<font size="0.9"> Actively exploring Engineering & Photography </font>">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lejun Jiang's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/17/Nevada,%20USA/" class="post-title-link" itemprop="url">Nevada, USA</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-05-17 13:32:08" itemprop="dateCreated datePublished" datetime="2020-05-17T13:32:08-04:00">2020-05-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-05-18 15:04:05" itemprop="dateModified" datetime="2020-05-18T15:04:05-04:00">2020-05-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/my-photo-gallery/" itemprop="url" rel="index"><span itemprop="name">My Photo Gallery</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/05/17/Nevada,%20USA/" class="post-meta-item leancloud_visitors" data-flag-title="Nevada, USA" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2020/05/17/Nevada,%20USA/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/05/17/Nevada, USA/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>During the winter break between Dec. 2019 and Jan. 2020, I went on a great trip across the US: starting from Michigan, I went to Illinois, took a train (the California Zephyr) to California, then drove to Nevada, Utah, and in the end Arizona. This trip took us 18 days and we found great joy in it, especially in photography. <br><br>We spent a total of 2 days in Nevada, most of which were spent on gambling and watching shows… It was a fantastic experience but in return there were few photos to share with you. Therefore, I put photo taken at the Death Valley (at the borderline of California and Nevada) here.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/05/17/Nevada,%20USA/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://github.com/LejunJiang/LejunJiang.github.io.git/2020/05/16/California,%20USA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Lejun (Harald) Jiang">
+      <meta itemprop="description" content="<font size="0.9"> Actively exploring Engineering & Photography </font>">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lejun Jiang's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/16/California,%20USA/" class="post-title-link" itemprop="url">California, USA</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-05-16 23:06:14" itemprop="dateCreated datePublished" datetime="2020-05-16T23:06:14-04:00">2020-05-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-05-18 15:03:55" itemprop="dateModified" datetime="2020-05-18T15:03:55-04:00">2020-05-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/my-photo-gallery/" itemprop="url" rel="index"><span itemprop="name">My Photo Gallery</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/05/16/California,%20USA/" class="post-meta-item leancloud_visitors" data-flag-title="California, USA" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2020/05/16/California,%20USA/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/05/16/California, USA/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>During the winter break between Dec. 2019 and Jan. 2020, I went on a great trip across the US: starting from Michigan, I went to Illinois, took a train (the California Zephyr) to California, then drove to Nevada, Utah, and in the end Arizona. This trip took us 18 days and we found great joy in it, especially in photography. <br><br>We spent a total of 7 days in California. Here are the photos taken during this period.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/05/16/California,%20USA/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://github.com/LejunJiang/LejunJiang.github.io.git/2019/04/23/Ball-Sorting-Machine/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Lejun (Harald) Jiang">
+      <meta itemprop="description" content="<font size="0.9"> Actively exploring Engineering & Photography </font>">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lejun Jiang's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/04/23/Ball-Sorting-Machine/" class="post-title-link" itemprop="url">Ball Sorting Machine</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-04-23 15:01:57" itemprop="dateCreated datePublished" datetime="2019-04-23T15:01:57-04:00">2019-04-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-05-18 17:17:00" itemprop="dateModified" datetime="2020-05-18T17:17:00-04:00">2020-05-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/projects/" itemprop="url" rel="index"><span itemprop="name">Projects</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2019/04/23/Ball-Sorting-Machine/" class="post-meta-item leancloud_visitors" data-flag-title="Ball Sorting Machine" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/04/23/Ball-Sorting-Machine/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/04/23/Ball-Sorting-Machine/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>This is a design and manufacturing project I conducted for the course ME 350 at the University of Michigan. My collaborators on this project are Holden Chevalier, Juevara Issa, Junjie Luo, and Avant Mehta.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/RTeog5QUwEs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<h1 id="Goal"><a href="#Goal" class="headerlink" title="Goal"></a>Goal</h1><p>The goal of project “ball sorting machine” is to design and build an efficient mechanism that uses a DC electric motor in a closed loop position control system to move a cup to the desired position and orientation accurately enough to catch each ball and drop it into different places based on the color of the ball.</p>
+<br>
+
+<p><img src="/2019/04/23/Ball-Sorting-Machine/Picture1.png" alt="Layout of the arena and the designed ball sorting machine."><span class="image-caption">Layout of the arena and the designed ball sorting machine.</span></p>
+<br>
+
+<h1 id="Design-Process"><a href="#Design-Process" class="headerlink" title="Design Process"></a>Design Process</h1><p>During our process of design, we considered the location and orientation of the cup, the location of the ground pivots, the transmission angle, and power of the motor.</p>
+<p>We first constructed a 2-D mechanism in Solidworks with concerns of the location and orientation of the cup, the location of the ground pivots, and the transmission angle. We generated a 2-D layout of the arena and three equivalent cups each with a support under it (the coupler is part of the support). We changed the location and orientation of the cups so that two of them could receive the balls dropped from each of the two chutes and the other one could throw the balls into the basket and the net. We then constructed two circles based on the corresponding two ends of the three couplers, the resulting centers of the circles were the location of the ground pivots. The ground pivots, however, should not be lower than the ground level. Therefore, we adjusted the location and orientation of the cups as well as the location of the ground pivots so that both the cups and the ground pivots met their individual requirements. Another concern was the transmission angle, it should be within the range of 30 to 150 degrees and be as close to 90 degrees as possible. Consequently, we fixed our ground pivots and checked how the transmission angle would change during our intended range of motion. Adjustments and improvements were made again so that all the three requirements were met.</p>
+<br>
+
+<p><img src="/2019/04/23/Ball-Sorting-Machine/Picture2.png" alt="2-D mechanism constructed in Solidworks."><span class="image-caption">2-D mechanism constructed in Solidworks.</span></p>
+<br>
+
+<p>After finalizing our 2-D mechanism design, we further extended it into a 3-D model in Solidworks in order to verify its manufacturability and functionality. Furthermore, we imported this 3-D model into ADAMS to predict its behavior through simulation. In order to achieve the highest efficiency, we wanted the mechanism to travel with a certain acceleration profile. We used this profile and different time values to simulate our designs in ADAMS, determining the resulting power consumption.</p>
+<br>
+
+<p><img src="/2019/04/23/Ball-Sorting-Machine/Picture3.png" alt="3-D mechanism constructed in ADAMS."><span class="image-caption">3-D mechanism constructed in ADAMS.</span></p>
+<br>
+
+<p><img src="/2019/04/23/Ball-Sorting-Machine/Picture4.png" alt="ADAMS simulation result of the mechanism power consumption versus seconds."><span class="image-caption">ADAMS simulation result of the mechanism power consumption versus seconds.</span></p>
+<br>
+
+<p>Each of the team members completed the above steps and generated our individual designs. By using a Pugh Chart considering four aspects of our designs: the mass, the transmission angle deviation, the ball reception angle deviation, and the time required to complete a half cycle at a 1 W motor power restriction, we selected our final design, which is shown below:</p>
+<br>
+
+<p><img src="/2019/04/23/Ball-Sorting-Machine/Picture5.png" alt="Isometric view of the mechanism."><span class="image-caption">Isometric view of the mechanism.</span></p>
+<br>
+
+<p><img src="/2019/04/23/Ball-Sorting-Machine/Picture6.png" alt="Final CAD of the mechanism at three critical positions."><span class="image-caption">Final CAD of the mechanism at three critical positions.</span></p>
+<br>
+
+<p><img src="/2019/04/23/Ball-Sorting-Machine/Picture7.png" alt="Side view (left) and isometric view (right) of ground link (plate) design."><span class="image-caption">Side view (left) and isometric view (right) of ground link (plate) design.</span></p>
+<br>
+
+<p><img src="/2019/04/23/Ball-Sorting-Machine/Picture8.png" alt="CAD of input, coupler and follower links."><span class="image-caption">CAD of input, coupler and follower links.</span></p>
+<br>
+
+<p><img src="/2019/04/23/Ball-Sorting-Machine/Picture9.png" alt="CAD of cup holder."><span class="image-caption">CAD of cup holder.</span></p>
+<br>
+
+<p><img src="/2019/04/23/Ball-Sorting-Machine/Picture10.png" alt="CAD of cup holder tray."><span class="image-caption">CAD of cup holder tray.</span></p>
+<br>
+
+<p>The joint designs of the mechanism are shown below.</p>
+<br>
+
+<p><img src="/2019/04/23/Ball-Sorting-Machine/Picture11.png" alt="Picture of joint 1-4."><span class="image-caption">Picture of joint 1-4.</span></p>
+<br>
+
+<p><img src="/2019/04/23/Ball-Sorting-Machine/Picture12.PNG" alt="Cross section views of joint 1-4. Joint 4 was designed without locknut because otherwise the locknut will block the motion of input link."><span class="image-caption">Cross section views of joint 1-4. Joint 4 was designed without locknut because otherwise the locknut will block the motion of input link.</span></p>
+<h1 id="Transmission-Ratio-and-Type-Determination"><a href="#Transmission-Ratio-and-Type-Determination" class="headerlink" title="Transmission Ratio and Type Determination"></a>Transmission Ratio and Type Determination</h1><p>Transimission is critical for the DC motor to drive the mechanism. In order to determine a proper transmission ratio, we used three methods: inertia matching, gravity compensation, and cup resolution. After applying the three methods, we decided to select a final transmission ratio of N=2.667.</p>
+<br>
+
+<p>Another Pugh Chart was designed to select the proper transmission type. Eventually, gear drives were selected over belt drives and chain drives.</p>
+<br>
+
+<p>Our final transmission design features a combination of aluminum and hardened brass spur gears which transfer torque from the motor output shaft to the input link. The use of gears for the transmission minimizes potential losses in efficiency and accuracy, while maintaining a small overall footprint and reliable operation. An overview of our transmission design is illustrated below.</p>
+<br>
+
+<p><img src="/2019/04/23/Ball-Sorting-Machine/Picture13.png" alt="Isometric view of mechanism, including the transmission."><span class="image-caption">Isometric view of mechanism, including the transmission.</span></p>
+<br>
+
+<p><img src="/2019/04/23/Ball-Sorting-Machine/Picture14.png" alt="Motor rotation is in parallel with ground plate due to 90-degree motor mounting adapter."><span class="image-caption">Motor rotation is in parallel with ground plate due to 90-degree motor mounting adapter.</span></p>
+<br>
+
+<p>The ring clamp motor mounts are chosen for allowing a large amount of adjustability and fine-tuning of our gear engagement.  Due to the ring clamp’s relatively shallow width, we chose to use (2x) in combination with a 90 degrees support brace for the L-bracket to eliminate any possible movement of the motor.  The 1” wide contact area of both 37mm ring clamp mounts provides more than enough friction and clamping force to keep the motor stationary during operation of the mechanism.  To provide maximum adjustability, the off-center motor shaft was designed to be orientated at its highest theoretical position as seen below.</p>
+<br>
+
+<p><img src="/2019/04/23/Ball-Sorting-Machine/Picture15.png" alt="Orientation of the metal gearmotor in relation to the ring clamp mounts."><span class="image-caption">Orientation of the metal gearmotor in relation to the ring clamp mounts.</span></p>
+<br>
+
+<p><img src="/2019/04/23/Ball-Sorting-Machine/Picture16.png" alt="Radial adjustment of the gear engagement is accomplished by twisting the motor into proper alignment."><span class="image-caption">Radial adjustment of the gear engagement is accomplished by twisting the motor into proper alignment.</span></p>
+<br>
+
+<p><img src="/2019/04/23/Ball-Sorting-Machine/Picture17.png" alt="Axial adjustment of the gear engagement is accomplished by sliding the motor back and forth."><span class="image-caption">Axial adjustment of the gear engagement is accomplished by sliding the motor back and forth.</span></p>
+<br>
+
+<h1 id="Sensors"><a href="#Sensors" class="headerlink" title="Sensors"></a>Sensors</h1><p>The sensors used in this project include a 64 CPR two-channel Hall effect encoder, an Adafruit RGB Color Sensor, a Snap Action Switch (limit switch), and a Single Pole Single Throw (On - Off) Toggle Switch. These sensors work collaboratively with our Arduino Uno microcontroller board to achieve reliable and accurate control of our mechanism.</p>
+<br>
+
+<p>The encoder attached to the rotor of the motor is used for determining the angular position of our mechanism. It uses hall effect to provide a quadrature resolution of 64 counts per revolution of the rotor. Due to the 30:1 gear box of the motor and our gear’s transmission ratio of 2.67:1, the encoder provides 5126 counts per revolution on our input link, which gives a resolution of 0.07 degrees. This resolution was determined to be enough for our application of receiving and disposing balls.</p>
+<br>
+
+<p>The Adafruit RGB Color Sensor is used for detecting the color of received balls and thus providing information to the Arduino Uno microcontroller board for the mechanism to proceed. The sensor shines white light to its front, senses the color reflected back to it, and assigns integer values ranging from 0 to 65535 for this color in four categories: red, green, blue, and clear. We obtained the corresponding values for different colors by experimentally testing the color sensor in the environment that it will operate within. Our cup holder was designed to be black and constrain the color sensor so that the color sensor will not be exposed to outside environment when the balls are dropped in (the color sensor will only face the ball and the black wall of the cup holder). Therefore, the impact of outside environment noise is limited and the reading of the color sensor will be relatively repeatable and reliable. Despite of this, there were still variations in the color sensor reading because of the heterogeneous color distribution on the balls. We resolved this problem by testing the readings of the sensor for each color multiple times and setting an appropriate range to accommodate the possible variations.</p>
+<br>
+
+<p>The Snap Action Switch (limit switch) is used for indicating the starting position of the mechanism and allowing the encoder to use it as a reference position. Although strikes of linkages are used for triggering it, since it is an electronic component, large forces may possibly damage it. Therefore, the limit switch itself can’t act as a hard stop, and it is placed next to the hard stop at the starting position. The limit switch only detects whether the circuit is connected or not, so it is not sensitive to noise.</p>
+<br>
+
+<p>The Single Pole Single Throw (On – Off) Toggle Switch is used for enabling human to directly control the on or off the motor. It will prevent undesired operation of motor and thus ensures safety. The toggle switch only detects whether the circuit is connected or not, so it is not sensitive to noise.</p>
+<h1 id="Controller-Design"><a href="#Controller-Design" class="headerlink" title="Controller Design"></a>Controller Design</h1><p>A combined feedforward (gravity compensation) and feedback (PID) control was implemented on the mechanism.</p>
+<br>
+
+<p>We combined physical testing and ADAMS simulation to quantify the effect of gravity on our mechanism. We applied a still motion on the leftmost and right most positions and obtained two values reflecting how much torque is required to hold our mechanism. Since our mechanism must be able to start its motion overcoming the gravity form both the leftmost and rightmost motion, this gravity compensation method is very important for the accuracy of our controller.</p>
+<br>
+
+<p>PID feedback control is also important to achieve a stable and efficient system. Due to the benefit of using state machines in our Arduino codes, we were allowed to test and tune the gains for each state individually. The result are shown below.</p>
+<br>
+
+<p><img src="/2019/04/23/Ball-Sorting-Machine/Picture18.PNG" alt="Summary of controller gains for different states. KP stands for the proportional gain, KI stands for the integral gain, and KD stands for the derivative gain."><span class="image-caption">Summary of controller gains for different states. KP stands for the proportional gain, KI stands for the integral gain, and KD stands for the derivative gain.</span></p>
+<h1 id="Final-Testing-Results"><a href="#Final-Testing-Results" class="headerlink" title="Final Testing Results"></a>Final Testing Results</h1><p>After testing our mechanism many times, we need to assemble it to a real playing field for final testing. According to the rules, there are 5 minutes for us to setup the whole device. Since all the parts were assembled to the ground plate in advance, we just attached the ground plate to the playing field using four screws and four spacers. In the meantime, testing code was uploaded to the Arduino board using the provided computer and wires were connected to both the power supply and playing field. Finally, we reset the Arduino board and reported we were ready. This process was completed within the time limitation. Then the power of playing field and the toggle switch of our mechanism were turned on, the final testing started. </p>
+<br>
+
+<p>We needed to catch and sort 30 balls (including 8 blue balls, 7 maize balls, 8 red balls, and 7 white balls) in a time constraint of 2 minutes. Since the results of our tests before final testing were successful, we held high expectations to our mechanism. All the balls are expected to be caught and correctly sorted without any physical contacts to the mechanism. The whole running process was expected to be completed within 1 minute and 5 seconds.</p>
+<br>
+
+<p>We had three trials in our final testing. The detailed results of each trial is shown below.</p>
+<br>
+
+<p><img src="/2019/04/23/Ball-Sorting-Machine/Picture19.PNG" alt="Final Testing results."><span class="image-caption">Final Testing results.</span></p>
+<br>
+
+<p>Although not all of the balls were sorted correctly, considering that the number of incorrectness is small, our mechanism still meets our expectation. The incorrectness is due to an incorrect color sensor reading rather than improper controller values since most balls were able to carry out required motion under the same controller gains. The reading problem may be resulted from our relatively narrow range of identifying the red and blue color. The problem may also be due to the fact that the specific red and blue balls don’t meet their general color standard since the same problem happened twice on these specific balls. Therefore, in the future, adjusting the color sensor code may be a large improvement we can make.</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
 
