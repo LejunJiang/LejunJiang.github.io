@@ -37,13 +37,13 @@
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : false,
+    isHome : true,
     isPost : false,
     lang   : 'en'
   };
 </script>
 
-  <title>Archive | Lejun Jiang's Blog</title>
+  <title>Lejun Jiang's Blog</title>
   
 
 
@@ -201,92 +201,626 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://github.com/LejunJiang/LejunJiang.github.io.git/2019/04/23/Ball-Sorting-Machine/">
 
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Lejun (Harald) Jiang">
+      <meta itemprop="description" content="<font size="0.9"> Actively exploring Engineering & Photography </font>">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lejun Jiang's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/04/23/Ball-Sorting-Machine/" class="post-title-link" itemprop="url">Ball Sorting Machine</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-04-23 15:01:57" itemprop="dateCreated datePublished" datetime="2019-04-23T15:01:57-04:00">2019-04-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-05-19 15:37:53" itemprop="dateModified" datetime="2020-05-19T15:37:53-04:00">2020-05-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/projects/" itemprop="url" rel="index"><span itemprop="name">Projects</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2019/04/23/Ball-Sorting-Machine/" class="post-meta-item leancloud_visitors" data-flag-title="Ball Sorting Machine" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/04/23/Ball-Sorting-Machine/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/04/23/Ball-Sorting-Machine/" itemprop="commentCount"></span>
+    </a>
+  </span>
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">Um..! 13 posts in total. Keep on posting.</span>
-      </div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2019</span>
+          <p>This is a design and manufacturing project I conducted for the course ME 350 at the University of Michigan. My collaborators on this project are Holden Chevalier, Juevara Issa, Junjie Luo, and Avant Mehta.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/RTeog5QUwEs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<h1 id="Goal"><a href="#Goal" class="headerlink" title="Goal"></a>Goal</h1><p>The goal of project “ball sorting machine” is to design and build an efficient mechanism that uses a DC electric motor in a closed loop position control system to move a cup to the desired position and orientation accurately enough to catch each ball and drop it into different places based on the color of the ball.</p>
+<br>
+
+<p><img src="/2019/04/23/Ball-Sorting-Machine/Picture1.png" alt="Layout of the arena and the designed ball sorting machine."><span class="image-caption">Layout of the arena and the designed ball sorting machine.</span></p>
+<br>
+
+<h1 id="Design-Process"><a href="#Design-Process" class="headerlink" title="Design Process"></a>Design Process</h1><p>During our process of design, we considered the location and orientation of the cup, the location of the ground pivots, the transmission angle, and power of the motor.</p>
+<p>We first constructed a 2-D mechanism in Solidworks with concerns of the location and orientation of the cup, the location of the ground pivots, and the transmission angle. We generated a 2-D layout of the arena and three equivalent cups each with a support under it (the coupler is part of the support). We changed the location and orientation of the cups so that two of them could receive the balls dropped from each of the two chutes and the other one could throw the balls into the basket and the net. We then constructed two circles based on the corresponding two ends of the three couplers, the resulting centers of the circles were the location of the ground pivots. The ground pivots, however, should not be lower than the ground level. Therefore, we adjusted the location and orientation of the cups as well as the location of the ground pivots so that both the cups and the ground pivots met their individual requirements. Another concern was the transmission angle, it should be within the range of 30 to 150 degrees and be as close to 90 degrees as possible. Consequently, we fixed our ground pivots and checked how the transmission angle would change during our intended range of motion. Adjustments and improvements were made again so that all the three requirements were met.</p>
+<br>
+
+<p><img src="/2019/04/23/Ball-Sorting-Machine/Picture2.png" alt="2-D mechanism constructed in Solidworks."><span class="image-caption">2-D mechanism constructed in Solidworks.</span></p>
+<br>
+
+<p>After finalizing our 2-D mechanism design, we further extended it into a 3-D model in Solidworks in order to verify its manufacturability and functionality. Furthermore, we imported this 3-D model into ADAMS to predict its behavior through simulation. In order to achieve the highest efficiency, we wanted the mechanism to travel with a certain acceleration profile. We used this profile and different time values to simulate our designs in ADAMS, determining the resulting power consumption.</p>
+<br>
+
+<p><img src="/2019/04/23/Ball-Sorting-Machine/Picture3.png" alt="3-D mechanism constructed in ADAMS."><span class="image-caption">3-D mechanism constructed in ADAMS.</span></p>
+<br>
+
+<p><img src="/2019/04/23/Ball-Sorting-Machine/Picture4.png" alt="ADAMS simulation result of the mechanism power consumption versus seconds."><span class="image-caption">ADAMS simulation result of the mechanism power consumption versus seconds.</span></p>
+<br>
+
+<p>Each of the team members completed the above steps and generated our individual designs. By using a Pugh Chart considering four aspects of our designs: the mass, the transmission angle deviation, the ball reception angle deviation, and the time required to complete a half cycle at a 1 W motor power restriction, we selected our final design, which is shown below:</p>
+<br>
+
+<p><img src="/2019/04/23/Ball-Sorting-Machine/Picture5.png" alt="Isometric view of the mechanism."><span class="image-caption">Isometric view of the mechanism.</span></p>
+<br>
+
+<p><img src="/2019/04/23/Ball-Sorting-Machine/Picture6.png" alt="Final CAD of the mechanism at three critical positions."><span class="image-caption">Final CAD of the mechanism at three critical positions.</span></p>
+<br>
+
+<p><img src="/2019/04/23/Ball-Sorting-Machine/Picture7.png" alt="Side view (left) and isometric view (right) of ground link (plate) design."><span class="image-caption">Side view (left) and isometric view (right) of ground link (plate) design.</span></p>
+<br>
+
+<p><img src="/2019/04/23/Ball-Sorting-Machine/Picture8.png" alt="CAD of input, coupler and follower links."><span class="image-caption">CAD of input, coupler and follower links.</span></p>
+<br>
+
+<p><img src="/2019/04/23/Ball-Sorting-Machine/Picture9.png" alt="CAD of cup holder."><span class="image-caption">CAD of cup holder.</span></p>
+<br>
+
+<p><img src="/2019/04/23/Ball-Sorting-Machine/Picture10.png" alt="CAD of cup holder tray."><span class="image-caption">CAD of cup holder tray.</span></p>
+<br>
+
+<p>The joint designs of the mechanism are shown below.</p>
+<br>
+
+<p><img src="/2019/04/23/Ball-Sorting-Machine/Picture11.png" alt="Picture of joint 1-4."><span class="image-caption">Picture of joint 1-4.</span></p>
+<br>
+
+<p><img src="/2019/04/23/Ball-Sorting-Machine/Picture12.PNG" alt="Cross section views of joint 1-4. Joint 4 was designed without locknut because otherwise the locknut will block the motion of input link."><span class="image-caption">Cross section views of joint 1-4. Joint 4 was designed without locknut because otherwise the locknut will block the motion of input link.</span></p>
+<h1 id="Transmission-Ratio-and-Type-Determination"><a href="#Transmission-Ratio-and-Type-Determination" class="headerlink" title="Transmission Ratio and Type Determination"></a>Transmission Ratio and Type Determination</h1><p>Transimission is critical for the DC motor to drive the mechanism. In order to determine a proper transmission ratio, we used three methods: inertia matching, gravity compensation, and cup resolution. After applying the three methods, we decided to select a final transmission ratio of N=2.667.</p>
+<br>
+
+<p>Another Pugh Chart was designed to select the proper transmission type. Eventually, gear drives were selected over belt drives and chain drives.</p>
+<br>
+
+<p>Our final transmission design features a combination of aluminum and hardened brass spur gears which transfer torque from the motor output shaft to the input link. The use of gears for the transmission minimizes potential losses in efficiency and accuracy, while maintaining a small overall footprint and reliable operation. An overview of our transmission design is illustrated below.</p>
+<br>
+
+<p><img src="/2019/04/23/Ball-Sorting-Machine/Picture13.png" alt="Isometric view of mechanism, including the transmission."><span class="image-caption">Isometric view of mechanism, including the transmission.</span></p>
+<br>
+
+<p><img src="/2019/04/23/Ball-Sorting-Machine/Picture14.png" alt="Motor rotation is in parallel with ground plate due to 90-degree motor mounting adapter."><span class="image-caption">Motor rotation is in parallel with ground plate due to 90-degree motor mounting adapter.</span></p>
+<br>
+
+<p>The ring clamp motor mounts are chosen for allowing a large amount of adjustability and fine-tuning of our gear engagement.  Due to the ring clamp’s relatively shallow width, we chose to use (2x) in combination with a 90 degrees support brace for the L-bracket to eliminate any possible movement of the motor.  The 1” wide contact area of both 37mm ring clamp mounts provides more than enough friction and clamping force to keep the motor stationary during operation of the mechanism.  To provide maximum adjustability, the off-center motor shaft was designed to be orientated at its highest theoretical position as seen below.</p>
+<br>
+
+<p><img src="/2019/04/23/Ball-Sorting-Machine/Picture15.png" alt="Orientation of the metal gearmotor in relation to the ring clamp mounts."><span class="image-caption">Orientation of the metal gearmotor in relation to the ring clamp mounts.</span></p>
+<br>
+
+<p><img src="/2019/04/23/Ball-Sorting-Machine/Picture16.png" alt="Radial adjustment of the gear engagement is accomplished by twisting the motor into proper alignment."><span class="image-caption">Radial adjustment of the gear engagement is accomplished by twisting the motor into proper alignment.</span></p>
+<br>
+
+<p><img src="/2019/04/23/Ball-Sorting-Machine/Picture17.png" alt="Axial adjustment of the gear engagement is accomplished by sliding the motor back and forth."><span class="image-caption">Axial adjustment of the gear engagement is accomplished by sliding the motor back and forth.</span></p>
+<br>
+
+<h1 id="Sensors"><a href="#Sensors" class="headerlink" title="Sensors"></a>Sensors</h1><p>The sensors used in this project include a 64 CPR two-channel Hall effect encoder, an Adafruit RGB Color Sensor, a Snap Action Switch (limit switch), and a Single Pole Single Throw (On - Off) Toggle Switch. These sensors work collaboratively with our Arduino Uno microcontroller board to achieve reliable and accurate control of our mechanism.</p>
+<br>
+
+<p>The encoder attached to the rotor of the motor is used for determining the angular position of our mechanism. It uses hall effect to provide a quadrature resolution of 64 counts per revolution of the rotor. Due to the 30:1 gear box of the motor and our gear’s transmission ratio of 2.67:1, the encoder provides 5126 counts per revolution on our input link, which gives a resolution of 0.07 degrees. This resolution was determined to be enough for our application of receiving and disposing balls.</p>
+<br>
+
+<p>The Adafruit RGB Color Sensor is used for detecting the color of received balls and thus providing information to the Arduino Uno microcontroller board for the mechanism to proceed. The sensor shines white light to its front, senses the color reflected back to it, and assigns integer values ranging from 0 to 65535 for this color in four categories: red, green, blue, and clear. We obtained the corresponding values for different colors by experimentally testing the color sensor in the environment that it will operate within. Our cup holder was designed to be black and constrain the color sensor so that the color sensor will not be exposed to outside environment when the balls are dropped in (the color sensor will only face the ball and the black wall of the cup holder). Therefore, the impact of outside environment noise is limited and the reading of the color sensor will be relatively repeatable and reliable. Despite of this, there were still variations in the color sensor reading because of the heterogeneous color distribution on the balls. We resolved this problem by testing the readings of the sensor for each color multiple times and setting an appropriate range to accommodate the possible variations.</p>
+<br>
+
+<p>The Snap Action Switch (limit switch) is used for indicating the starting position of the mechanism and allowing the encoder to use it as a reference position. Although strikes of linkages are used for triggering it, since it is an electronic component, large forces may possibly damage it. Therefore, the limit switch itself can’t act as a hard stop, and it is placed next to the hard stop at the starting position. The limit switch only detects whether the circuit is connected or not, so it is not sensitive to noise.</p>
+<br>
+
+<p>The Single Pole Single Throw (On – Off) Toggle Switch is used for enabling human to directly control the on or off the motor. It will prevent undesired operation of motor and thus ensures safety. The toggle switch only detects whether the circuit is connected or not, so it is not sensitive to noise.</p>
+<h1 id="Controller-Design"><a href="#Controller-Design" class="headerlink" title="Controller Design"></a>Controller Design</h1><p>A combined feedforward (gravity compensation) and feedback (PID) control was implemented on the mechanism.</p>
+<br>
+
+<p>We combined physical testing and ADAMS simulation to quantify the effect of gravity on our mechanism. We applied a still motion on the leftmost and right most positions and obtained two values reflecting how much torque is required to hold our mechanism. Since our mechanism must be able to start its motion overcoming the gravity form both the leftmost and rightmost motion, this gravity compensation method is very important for the accuracy of our controller.</p>
+<br>
+
+<p>PID feedback control is also important to achieve a stable and efficient system. Due to the benefit of using state machines in our Arduino codes, we were allowed to test and tune the gains for each state individually. The result are shown below.</p>
+<br>
+
+<p><img src="/2019/04/23/Ball-Sorting-Machine/Picture18.PNG" alt="Summary of controller gains for different states. KP stands for the proportional gain, KI stands for the integral gain, and KD stands for the derivative gain."><span class="image-caption">Summary of controller gains for different states. KP stands for the proportional gain, KI stands for the integral gain, and KD stands for the derivative gain.</span></p>
+<h1 id="Final-Testing-Results"><a href="#Final-Testing-Results" class="headerlink" title="Final Testing Results"></a>Final Testing Results</h1><p>After testing our mechanism many times, we need to assemble it to a real playing field for final testing. According to the rules, there are 5 minutes for us to setup the whole device. Since all the parts were assembled to the ground plate in advance, we just attached the ground plate to the playing field using four screws and four spacers. In the meantime, testing code was uploaded to the Arduino board using the provided computer and wires were connected to both the power supply and playing field. Finally, we reset the Arduino board and reported we were ready. This process was completed within the time limitation. Then the power of playing field and the toggle switch of our mechanism were turned on, the final testing started. </p>
+<br>
+
+<p>We needed to catch and sort 30 balls (including 8 blue balls, 7 maize balls, 8 red balls, and 7 white balls) in a time constraint of 2 minutes. Since the results of our tests before final testing were successful, we held high expectations to our mechanism. All the balls are expected to be caught and correctly sorted without any physical contacts to the mechanism. The whole running process was expected to be completed within 1 minute and 5 seconds.</p>
+<br>
+
+<p>We had three trials in our final testing. The detailed results of each trial is shown below.</p>
+<br>
+
+<p><img src="/2019/04/23/Ball-Sorting-Machine/Picture19.PNG" alt="Final Testing results."><span class="image-caption">Final Testing results.</span></p>
+<br>
+
+<p>Although not all of the balls were sorted correctly, considering that the number of incorrectness is small, our mechanism still meets our expectation. The incorrectness is due to an incorrect color sensor reading rather than improper controller values since most balls were able to carry out required motion under the same controller gains. The reading problem may be resulted from our relatively narrow range of identifying the red and blue color. The problem may also be due to the fact that the specific red and blue balls don’t meet their general color standard since the same problem happened twice on these specific balls. Therefore, in the future, adjusting the color sensor code may be a large improvement we can make.</p>
+
+      
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-01-16T23:06:14-05:00"
-              content="2019-01-16">
-          01-16
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2019/01/16/California1/" itemprop="url">
-            <span itemprop="name">Los Angeles, California, USA, 2019 Winter Break Trip</span>
-          </a>
-      </div>
-
-    </header>
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
   </article>
-    <div class="collection-year">
-      <span class="collection-header">2018</span>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2018-11-22T23:06:14-05:00"
-              content="2018-11-22">
-          11-22
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2018/11/22/Chicago/" itemprop="url">
-            <span itemprop="name">Chicago, Illinois, USA, 2018 Thanksgiving Day Trip</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2018-01-24T21:45:25-05:00"
-              content="2018-01-24">
-          01-24
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2018/01/24/Tianjin/" itemprop="url">
-            <span itemprop="name">Tianjin 天津, China, 2018 Winter Break Trip</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-
-    </div>
-  </div>
   
   
   
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://github.com/LejunJiang/LejunJiang.github.io.git/2019/01/16/California1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Lejun (Harald) Jiang">
+      <meta itemprop="description" content="<font size="0.9"> Actively exploring Engineering & Photography </font>">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lejun Jiang's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/01/16/California1/" class="post-title-link" itemprop="url">Los Angeles, California, USA, 2019 Winter Break Trip</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-01-16 23:06:14" itemprop="dateCreated datePublished" datetime="2019-01-16T23:06:14-05:00">2019-01-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-05-20 17:38:13" itemprop="dateModified" datetime="2020-05-20T17:38:13-04:00">2020-05-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/my-photo-gallery/" itemprop="url" rel="index"><span itemprop="name">My Photo Gallery</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2019/01/16/California1/" class="post-meta-item leancloud_visitors" data-flag-title="Los Angeles, California, USA, 2019 Winter Break Trip" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/01/16/California1/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/01/16/California1/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>During the winter break between Dec. 2018 and Jan. 2019, my friend and I took a detour during our trip back home to China: we spent three days in Los Angelous, CA. It is a beautiful city with wonderful weather.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/01/16/California1/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://github.com/LejunJiang/LejunJiang.github.io.git/2018/11/22/Chicago/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Lejun (Harald) Jiang">
+      <meta itemprop="description" content="<font size="0.9"> Actively exploring Engineering & Photography </font>">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lejun Jiang's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/11/22/Chicago/" class="post-title-link" itemprop="url">Chicago, Illinois, USA, 2018 Thanksgiving Day Trip</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-11-22 23:06:14" itemprop="dateCreated datePublished" datetime="2018-11-22T23:06:14-05:00">2018-11-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-06-01 15:48:15" itemprop="dateModified" datetime="2020-06-01T15:48:15-04:00">2020-06-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/my-photo-gallery/" itemprop="url" rel="index"><span itemprop="name">My Photo Gallery</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2018/11/22/Chicago/" class="post-meta-item leancloud_visitors" data-flag-title="Chicago, Illinois, USA, 2018 Thanksgiving Day Trip" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/11/22/Chicago/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/11/22/Chicago/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>On the Thanksgiving Day of 2018, my friends and I drived to Chicago, IL to enjoy our holiday.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/11/22/Chicago/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://github.com/LejunJiang/LejunJiang.github.io.git/2018/10/16/northern-michigan/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Lejun (Harald) Jiang">
+      <meta itemprop="description" content="<font size="0.9"> Actively exploring Engineering & Photography </font>">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lejun Jiang's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/10/16/northern-michigan/" class="post-title-link" itemprop="url">Northern Michigan, Michigan, USA, 2018 Fall Break Trip</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-10-16 23:06:14" itemprop="dateCreated datePublished" datetime="2018-10-16T23:06:14-04:00">2018-10-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-06-01 16:18:14" itemprop="dateModified" datetime="2020-06-01T16:18:14-04:00">2020-06-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/my-photo-gallery/" itemprop="url" rel="index"><span itemprop="name">My Photo Gallery</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2018/10/16/northern-michigan/" class="post-meta-item leancloud_visitors" data-flag-title="Northern Michigan, Michigan, USA, 2018 Fall Break Trip" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/10/16/northern-michigan/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/10/16/northern-michigan/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>During the fall study break of 2018, my friends and I drived up to Northern Michigan to enjoy our short break.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/10/16/northern-michigan/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://github.com/LejunJiang/LejunJiang.github.io.git/2018/01/24/Tianjin/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Lejun (Harald) Jiang">
+      <meta itemprop="description" content="<font size="0.9"> Actively exploring Engineering & Photography </font>">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lejun Jiang's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/01/24/Tianjin/" class="post-title-link" itemprop="url">Tianjin 天津, China, 2018 Winter Break Trip</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-01-24 21:45:25" itemprop="dateCreated datePublished" datetime="2018-01-24T21:45:25-05:00">2018-01-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-05-25 23:59:42" itemprop="dateModified" datetime="2020-05-25T23:59:42-04:00">2020-05-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/my-photo-gallery/" itemprop="url" rel="index"><span itemprop="name">My Photo Gallery</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2018/01/24/Tianjin/" class="post-meta-item leancloud_visitors" data-flag-title="Tianjin 天津, China, 2018 Winter Break Trip" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/01/24/Tianjin/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/01/24/Tianjin/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>During the winter break between 2017 and 2018, my friends and I rode a train to Tianjin for travelling.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/01/24/Tianjin/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
   <nav class="pagination">
@@ -357,7 +891,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
