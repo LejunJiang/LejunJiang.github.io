@@ -37,7 +37,7 @@
 <meta property="og:image" content="https://github.com/2020/08/15/digital-twin-model/Picture8.png">
 <meta property="og:image" content="https://github.com/2020/08/15/digital-twin-model/Picture9.png">
 <meta property="article:published_time" content="2020-08-15T12:21:02.000Z">
-<meta property="article:modified_time" content="2020-08-24T05:26:51.493Z">
+<meta property="article:modified_time" content="2020-08-24T15:49:13.915Z">
 <meta property="article:author" content="Lejun (Harald) Jiang 姜乐钧">
 <meta property="article:tag" content="dynamics">
 <meta property="article:tag" content="modeling">
@@ -243,7 +243,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-24 01:26:51" itemprop="dateModified" datetime="2020-08-24T01:26:51-04:00">2020-08-24</time>
+                <time title="Modified: 2020-08-24 11:49:13" itemprop="dateModified" datetime="2020-08-24T11:49:13-04:00">2020-08-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -324,7 +324,7 @@
 <p><img src="/2020/08/15/digital-twin-model/Picture5.JPG" alt="COMSOL model and simulation results for the Finite Element Analysis method."><span class="image-caption">COMSOL model and simulation results for the Finite Element Analysis method.</span></p>
 <p>Another major simplification is the size of the roller: it is brought down to 0.25m in length and 0.05m in diameter for the 2D model instead of the true size which is 10m in length and 3m in diameter. This is due to the limited computing power we have. Since we keep the target tobacco leaf true to size, the roller would be thousands of times larger than the tobacco leaves in size, this will require incredible long time to run the simulation. Therefore, we change the roller to a smaller size. We note that this change in size will also create deviations from the actual scenario, but the simplification is necessary for the completion of the Finite Element Analysis simulation.</p>
 <p>With an understanding of the system physics, we propose 4 Physics modules to simulate the dynamics inside the drying process: Laminar Flow, Heat Transfer in Fluids, Transport of Diluted Species: Liquid Water, and Transport of Diluted Species: Water Vapor.</p>
-<p>Laminar Flow module simulates the flow of the hot air over the roller’s wall as well as the tobacco leaves. Laminar flow instead of turbulent flow is selected here because the Reynolds number $Re=\rho{u}L/\mu=203397&lt;500000$. Since the pressure has great impact on the rate of evaporation for water vapor, the simulation of air flow is important.</p>
+<p>Laminar Flow module simulates the flow of the hot air over the roller’s wall as well as the tobacco leaves. Laminar flow instead of turbulent flow is selected here because the Reynolds number Re = 203397 &lt; 500000. Since the pressure has great impact on the rate of evaporation for water vapor, the simulation of air flow is important.</p>
 <p>Heat Transfer module simulates the heat transfer between the hot air, the tobacco leaves, and the roller wall. It also simulates the heat transfer inside the materials themselves. Since the temperature has great impact on the rate of evaporation for water vapor, the evaluation of the heat transfer is essential.</p>
 <p>Transport of Diluted Species: Liquid Water simulates the movement of liquid water inside the tobacco leaves. The concentration of liquid water is also influential on the rate of evaporation for water vapor, so this module is nonnegligible.</p>
 <p>Transport of Diluted Species: Water Vapor is the essential module in this model because the drying of the tobacco leaves is achieved through the evaporation of water vapor.</p>
@@ -336,7 +336,7 @@
 <p>Here we implemented a model based on Long Short Term Memory (LSTM) neural network that can predict the output moisture content at the next timestamp given any timestamp with its previous outputs and parameters. The metric we used to evaluate the model is the average relative error between the predicted outputs and actual outputs from test data sets. An overview of the final design is shown in the flow chart below. The procedure includes preprocessing the data, training the model, and validating the result.</p>
 <br>
 
-<p><img src="/2020/08/15/digital-twin-model/Picture6.png" alt="An overview flow chart of data-driven methods"><span class="image-caption">An overview flow chart of data-driven methods</span></p>
+<p><img src="/2020/08/15/digital-twin-model/Picture6.png" alt="An overview flow chart of data-driven methods."><span class="image-caption">An overview flow chart of data-driven methods.</span></p>
 <br>
 
 <h1 id="General-Validation-Process"><a href="#General-Validation-Process" class="headerlink" title="General Validation Process"></a>General Validation Process</h1><p>Each model is validated by inputting the parameters in the provided data set and comparing the resulting output value with the ground truth data. The resulting computed accuracy of the models should stay within the engineering specifications defined above. Other engineering specifications are also validated to be satisfied where appropriate.</p>
