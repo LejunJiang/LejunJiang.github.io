@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.jpg">
+  <link rel="mask-icon" href="/images/favicon.jpg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Helvetica:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"github.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","author":"Lejun Jiang's Blog","author_title":"BSE in MechE @ UofM | BSE in ECE @ SJTU 20'","width":300,"display":"always","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="This is the capstone design project I conducted for the course VE 450 at Shanghai Jiao Tong University. My collaborators on this project are Shiyu Liu, Mengtian Guo, Tianchun Huang, and Jingyu Su. Goa">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Creating Digital Twin Models for Tobacco Drying Processes">
+<meta property="og:url" content="https://github.com/LejunJiang/LejunJiang.github.io.git/2020/08/15/digital-twin-model/index.html">
+<meta property="og:site_name" content="Lejun&#39;s Blog">
+<meta property="og:description" content="This is the capstone design project I conducted for the course VE 450 at Shanghai Jiao Tong University. My collaborators on this project are Shiyu Liu, Mengtian Guo, Tianchun Huang, and Jingyu Su. Goa">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://github.com/2020/08/15/digital-twin-model/Picture1.JPG">
+<meta property="og:image" content="https://github.com/2020/08/15/digital-twin-model/Picture2.JPG">
+<meta property="og:image" content="https://github.com/2020/08/15/digital-twin-model/Picture3.JPG">
+<meta property="og:image" content="https://github.com/2020/08/15/digital-twin-model/Picture4.JPG">
+<meta property="og:image" content="https://github.com/2020/08/15/digital-twin-model/Picture5.JPG">
+<meta property="og:image" content="https://github.com/2020/08/15/digital-twin-model/Picture6.png">
+<meta property="og:image" content="https://github.com/2020/08/15/digital-twin-model/Picture7.JPG">
+<meta property="og:image" content="https://github.com/2020/08/15/digital-twin-model/Picture8.png">
+<meta property="og:image" content="https://github.com/2020/08/15/digital-twin-model/Picture9.png">
+<meta property="article:published_time" content="2020-08-15T12:21:02.000Z">
+<meta property="article:modified_time" content="2020-08-24T05:26:51.493Z">
+<meta property="article:author" content="Lejun (Harald) Jiang 姜乐钧">
+<meta property="article:tag" content="dynamics">
+<meta property="article:tag" content="modeling">
+<meta property="article:tag" content="FEA">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github.com/2020/08/15/digital-twin-model/Picture1.JPG">
+
+<link rel="canonical" href="https://github.com/LejunJiang/LejunJiang.github.io.git/2020/08/15/digital-twin-model/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Creating Digital Twin Models for Tobacco Drying Processes | Lejun's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Lejun's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">'22 MSE in Robotics @ Penn <br /> '20 BSE in MechE, Minor in EE @ UMich <br /> '20 BSE in ECE @ SJTU</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-curriculum-vitae">
+
+    <a href="/curriculum-vitae/" rel="section"><i class="fa fa-file fa-fw"></i>Curriculum Vitae</a>
+
+  </li>
+        <li class="menu-item menu-item-all-posts">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>All Posts</a>
+
+  </li>
+        <li class="menu-item menu-item-projects">
+
+    <a href="/categories/projects/" rel="section"><i class="fa fa-hammer fa-fw"></i>Projects</a>
+
+  </li>
+        <li class="menu-item menu-item-my-photo-gallery">
+
+    <a href="/categories/My-Photo-Gallery/" rel="section"><i class="fa fa-camera-retro fa-fw"></i>My Photo Gallery</a>
+
+  </li>
+        <li class="menu-item menu-item-travel-journels">
+
+    <a href="/categories/travel-journels/" rel="section"><i class="fa fa-plane-departure fa-fw"></i>Travel Journels</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://github.com/LejunJiang/LejunJiang.github.io.git/2020/08/15/digital-twin-model/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Lejun (Harald) Jiang 姜乐钧">
+      <meta itemprop="description" content="<font size="0.9"> Actively exploring Engineering & Photography </font>">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lejun's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Creating Digital Twin Models for Tobacco Drying Processes
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-08-15 08:21:02" itemprop="dateCreated datePublished" datetime="2020-08-15T08:21:02-04:00">2020-08-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-08-24 01:26:51" itemprop="dateModified" datetime="2020-08-24T01:26:51-04:00">2020-08-24</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/projects/" itemprop="url" rel="index"><span itemprop="name">Projects</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/08/15/digital-twin-model/" class="post-meta-item leancloud_visitors" data-flag-title="Creating Digital Twin Models for Tobacco Drying Processes" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2020/08/15/digital-twin-model/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/08/15/digital-twin-model/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>This is the capstone design project I conducted for the course VE 450 at Shanghai Jiao Tong University. My collaborators on this project are Shiyu Liu, Mengtian Guo, Tianchun Huang, and Jingyu Su.</p>
+<h1 id="Goal"><a href="#Goal" class="headerlink" title="Goal"></a>Goal</h1><p>The goal of project “Creating Digital Twin Models for Tobacco Drying Processes” is to develop multiple models for the tobacco drying process that could be combined and cross-validated with each other. When travelling through the rotary dryer, the tobacco leaves are heated by air flow through the cylinder and by conduction of heat from the dryer walls. There are a couple of controllable variables in this process: the air moisture content, the air temperature and speed insidethe cylinder, the rotation speed of the dryer, and the temperature on the cylinder walls. Furthermore, the mass of tobacco leaves inside the dryer, the initial moisture content and temperature propagated from the previous manufacturing process, are also influential to the resulting tobacco moisture content. Referring to the prior works and approaches for modeling industrial drying process, we extend our study with three methods, first principle modeling, data driven modeling, and finite element analysis. Our main objective is to exploit the correlation between the output moisture content in tobacco leaves and the factors involved in the manufacturing process through the above modeling approaches. These models need to provide good fit to the data collected from the real manufacturing environment, and they should be cross-validated with each other. An accurate and robust digital twin makes it more efficient to try out possible improvements on the system of interest, and make performance evaluations within shorter time span and lower cost.</p>
+<p>An obstacle we have to tackle with is that, to the best of our knowledge, a tobacco drying process model with sound theoretical base has not yet been published in literature or applied under an industrial setup. We therefore have limited access to the existing methods presented on this topic, nevertheless, this is where our novelty lies in. Over the years, the tobacco drying process relies on manual control. Although PID controllers are widely applied to adjust variables such as vapor pressure, and temperature on the dryer walls, they are proved to be less efficient than trial and error in terms of top level implementations that accommodates the entire drying process. The reason primarily stands out is the time delay of the dryer system, which makes it impossible for conventional PID controllers to get real time response as feedback. During recent years, machine learning has been extensively applied to numerous tasks and achieved significant performance gains. We have noticed several works that employs ANN or deep neural based approaches to optimize the operational flow in drying process. In this project, we would like to exploit the modeling task from this direction. Finite element analysis (FEA) is frequently adopted in modeling works, which provides reliable results and pleasuring visualization without the need to address the dynamics from the aspect of mathematical/physical principles. So far, there hasn’t been a tobacco drying related work using FEA for modeling. We think this is an interesting field to explore, and the modeling results from FEA can provide valuable sources for cross-validation.</p>
+<br>
+
+<p><img src="/2020/08/15/digital-twin-model/Picture1.JPG" alt="Schematic of the roller of the tobacco drying system."><span class="image-caption">Schematic of the roller of the tobacco drying system.</span></p>
+<br>
+
+<h1 id="Requirements-amp-Engineering-Specifications"><a href="#Requirements-amp-Engineering-Specifications" class="headerlink" title="Requirements &amp; Engineering Specifications"></a>Requirements &amp; Engineering Specifications</h1><p>Relevant information was collected from various sources including literature review, benchmarking products and interviews with stakeholders, Dr. Siqi Zhu from Hangzhou AIMS, Inc. Key challenges of this project lie in the demand of high accuracy of the models.</p>
+<br>
+
+<p><img src="/2020/08/15/digital-twin-model/Picture2.JPG" alt="The requirements and their corresponding importance as well as engineering specification associated with the digital twin models."><span class="image-caption">The requirements and their corresponding importance as well as engineering specification associated with the digital twin models.</span></p>
+<br>
+
+<h1 id="Concept-Generation"><a href="#Concept-Generation" class="headerlink" title="Concept Generation"></a>Concept Generation</h1><p>Figure 3. shows our concept map for this project. Our concept generation process is driven by the customer requirements, referring to how can we solve the problem and meet all the requirements.</p>
+<p>There are mainly three parts in the concept map. The blue part specifies the concepts related to methods. The core idea of our method is to build a function that predicts the output tobacco moisture content based on system parameters. We came up with sub-concepts, first principle, data driven, and finite element analysis, indicating major directions we may try to build the target function. We then refer to literature in those directions and generate more detailed concepts such as LSTM for data driven.</p>
+<p>Another critical part in our concept map is applicability in industry, which is colored in green. Since this project is highly related to industrial products, we introduces the concept of applicability, which further means fast response of the model and an option task to design a controller that will relate the model with actual production. One major concern of applicability is reliability. Three concepts including stability, noise rejection, and cross referencing related to reliability are then generated.</p>
+<br>
+
+<p><img src="/2020/08/15/digital-twin-model/Picture3.JPG" alt="Concept map of the digital twin model. Different influential aspects are distinguished with colors, and the methods leads to three directions of concepts."><span class="image-caption">Concept map of the digital twin model. Different influential aspects are distinguished with colors, and the methods leads to three directions of concepts.</span></p>
+<br>
+
+<h1 id="Final-Design"><a href="#Final-Design" class="headerlink" title="Final Design"></a>Final Design</h1><p>Our final design includes three parts:</p>
+<h2 id="First-Principle-Based-Method"><a href="#First-Principle-Based-Method" class="headerlink" title="First Principle Based Method"></a>First Principle Based Method</h2><br>
+
+<p>We employ discretization in first principle modeling, which splits the whole rotary dryer into N control volumes. The output of one control volume becomes the input of the next and we assume that there are no changes on drying conditions and characteristics of gas and particles in each discretized unit. To describe the drying process happens in the ith unit, we take heat and mass transfer into consideration and derive four major equations. Those four equations connect the (i + 1)th control volume with the ith one, and we solve for quantities such as temperature and moisture in the (i + 1)th control volume based on the system of equations.</p>
+<br>
+
+<p><img src="/2020/08/15/digital-twin-model/Picture4.JPG" alt="Concept diagram for first principle based method."><span class="image-caption">Concept diagram for first principle based method.</span></p>
+<br>
+
+<h2 id="Finite-Element-Analysis-Method"><a href="#Finite-Element-Analysis-Method" class="headerlink" title="Finite Element Analysis Method"></a>Finite Element Analysis Method</h2><br>
+
+<p>Due to the limitation imposed by the Finite Element Analysis method and the problem setup, we could not simulate the real situation where thousands of tobacco leaves moves inside a cylindrical roller. Therefore, we made a major simplification to the simulation: we fix the tobacco leaves in the cylindrical roller, that is, we keep the tobacco leaves stationary and pass hot air through the roller. Although this will result in deviations from the real scenario where the tobacco leaf travels through the roller, experiencing different evaporation rates at different time stamps, the simplified case should still be able to give us a reasonable understanding of the drying process and predict the general trend. We set a target tobacco leaf to be of our main interest and we place it in the middle of the roller to obtain the most averaged result. Two strips of tobacco leaves are placed at each side of the target tobacco leaf to simulate the influence of surrounding leaves to it. Since tobacco leaves are continuously supplied during operation and they occupy almost the whole length of the roller, the two strips of tobacco leaves span across almost the entire roller. Considering that the gaps between the target tobacco leaf and the tobacco leaf strips are small, the effect of them could be neglected. After verification with simulations, we simplify the model to the one shown below with a single long tobacco leaf strip. In this case, the target result becomes the moisture content at the center location of the tobacco leaf strip.</p>
+<p><img src="/2020/08/15/digital-twin-model/Picture5.JPG" alt="COMSOL model and simulation results for the Finite Element Analysis method."><span class="image-caption">COMSOL model and simulation results for the Finite Element Analysis method.</span></p>
+<p>Another major simplification is the size of the roller: it is brought down to 0.25m in length and 0.05m in diameter for the 2D model instead of the true size which is 10m in length and 3m in diameter. This is due to the limited computing power we have. Since we keep the target tobacco leaf true to size, the roller would be thousands of times larger than the tobacco leaves in size, this will require incredible long time to run the simulation. Therefore, we change the roller to a smaller size. We note that this change in size will also create deviations from the actual scenario, but the simplification is necessary for the completion of the Finite Element Analysis simulation.</p>
+<p>With an understanding of the system physics, we propose 4 Physics modules to simulate the dynamics inside the drying process: Laminar Flow, Heat Transfer in Fluids, Transport of Diluted Species: Liquid Water, and Transport of Diluted Species: Water Vapor.</p>
+<p>Laminar Flow module simulates the flow of the hot air over the roller’s wall as well as the tobacco leaves. Laminar flow instead of turbulent flow is selected here because the Reynolds number $Re=\rho{u}L/\mu=203397&lt;500000$. Since the pressure has great impact on the rate of evaporation for water vapor, the simulation of air flow is important.</p>
+<p>Heat Transfer module simulates the heat transfer between the hot air, the tobacco leaves, and the roller wall. It also simulates the heat transfer inside the materials themselves. Since the temperature has great impact on the rate of evaporation for water vapor, the evaluation of the heat transfer is essential.</p>
+<p>Transport of Diluted Species: Liquid Water simulates the movement of liquid water inside the tobacco leaves. The concentration of liquid water is also influential on the rate of evaporation for water vapor, so this module is nonnegligible.</p>
+<p>Transport of Diluted Species: Water Vapor is the essential module in this model because the drying of the tobacco leaves is achieved through the evaporation of water vapor.</p>
+<p>These four Physics modules are coupled in COMSOL Multiphysics to perform simulations. The laminar flow is first simulated using stationary solver to achieve the equilibrium state, the other three modules are then solved by time dependent solver. The simulation time is set to be the estimated travel time of a tobacco leaf inside the roller, which is 366 s. The resulting water saturation, or moisture content of the target tobacco leaf is then the desired result of the simulation.</p>
+<br>
+
+<h2 id="Data-driven-Methods"><a href="#Data-driven-Methods" class="headerlink" title="Data-driven Methods"></a>Data-driven Methods</h2><br>
+
+<p>Here we implemented a model based on Long Short Term Memory (LSTM) neural network that can predict the output moisture content at the next timestamp given any timestamp with its previous outputs and parameters. The metric we used to evaluate the model is the average relative error between the predicted outputs and actual outputs from test data sets. An overview of the final design is shown in the flow chart below. The procedure includes preprocessing the data, training the model, and validating the result.</p>
+<br>
+
+<p><img src="/2020/08/15/digital-twin-model/Picture6.png" alt="An overview flow chart of data-driven methods"><span class="image-caption">An overview flow chart of data-driven methods</span></p>
+<br>
+
+<h1 id="General-Validation-Process"><a href="#General-Validation-Process" class="headerlink" title="General Validation Process"></a>General Validation Process</h1><p>Each model is validated by inputting the parameters in the provided data set and comparing the resulting output value with the ground truth data. The resulting computed accuracy of the models should stay within the engineering specifications defined above. Other engineering specifications are also validated to be satisfied where appropriate.</p>
+<h1 id="Performance-by-simulation"><a href="#Performance-by-simulation" class="headerlink" title="Performance (by simulation)"></a>Performance (by simulation)</h1><p>The models were generally able to meet the specifications as shown below.</p>
+<br>
+
+<p><img src="/2020/08/15/digital-twin-model/Picture7.JPG" alt="Performance of the models."><span class="image-caption">Performance of the models.</span></p>
+<br>
+
+<h1 id="Future-Improvements"><a href="#Future-Improvements" class="headerlink" title="Future Improvements"></a>Future Improvements</h1><h2 id="First-Principle-Based-Method-1"><a href="#First-Principle-Based-Method-1" class="headerlink" title="First Principle Based Method"></a>First Principle Based Method</h2><p>The design based on physical dynamics of the drying process requires the knowledge of the tobacco physical properties, heat and mass transfer characteristics, and the motion dynamics caused by the rotation of the drum. Since this project is at its initial phase, we are not provided with data that can only be acquired through experiments in lab. Thereby, our model heavily relies on parameters and empirical equations stated in literature we referred to. We also make assumptions on dimensions and other physical properties of the rotary drum due to the lack of measured data. During the implementation process of our first principle based model, we find that an accurate description on the physical properties and motion dynamics is very essential to build a digital twin model close enough to the real manufacturing process. We hence recommend the project team to verify the property data with experiments in lab and measurements in factory as future efforts to further enhance the accuracy and robustness of the model.</p>
+<h2 id="Finite-Element-Analysis-Method-1"><a href="#Finite-Element-Analysis-Method-1" class="headerlink" title="Finite Element Analysis Method"></a>Finite Element Analysis Method</h2><p>Similar to the first principle based method, the Finite Element Analysis model heavily relies on the parameters assumed or stated in literature we referred to. The variation of these parameters can create large variations in the simulation results. Therefore, it is important and recommended to  verify the property data with experiments in lab and measurements in factory to further enhance the accuracy and robustness of the model. Furthermore, due to the limited computing power, the FEA model is only implemented for the roller with reduced size. If additional computing power is available, it is recommended to run the simulation with the roller true to size, which will provide more reliable results.</p>
+<h2 id="Data-driven-Method"><a href="#Data-driven-Method" class="headerlink" title="Data-driven Method"></a>Data-driven Method</h2><p>Neural network is not the only method to deal with such kind of problem, traditional machine learning methods including K-Nearest Neighbours (KNN) and Random Forest or traditional statistical methods such as Autoregressive Integrated Moving Average (ARIMA) model can also be used to solve the regression problem. In our experiments, KNN leads to comparable result to LSTM model, while the model is still not fine tuned. Therefore, after tuning these models, better results could appear. Furthermore, since these models are theoretically different, they may not result in the same kind of bias as the LSTM model. A better method in the end would be an ensemble model which consists of several model like the Random Forest Regression, which gives a promising result without much fine-tuning as follows: </p>
+<p><img src="/2020/08/15/digital-twin-model/Picture8.png" alt="Moisture prediction result of Random Forest Regressor."><span class="image-caption">Moisture prediction result of Random Forest Regressor.</span></p>
+<p>Another model that can be explored is the ExtraTrees Regressor, which is an enhanced version of Random Forest algorithm that introduces randomness into feature splitting. However in our practice, this model shows a strong sign of overfitting, so its feasibility will need further examination. </p>
+<h1 id="Model-Integration-and-Future-Efforts"><a href="#Model-Integration-and-Future-Efforts" class="headerlink" title="Model Integration and Future Efforts"></a>Model Integration and Future Efforts</h1><p>In this project, we propose to solve the modeling task in a multi-directional manner, with each method having its own features and limitations. First principle based modeling has a robust nature since the heat and mass transfer properties are studied in the dynamic system involving gas-particle flow, whereas it cannot predict the output moisture content in tobacco leaves with high precision. Finite element analysis provides appealing and straightforward visualization that monitors the real-time status of the tobacco particles inside the drum, while this method suffers from expensive computations, and it does not take the complex particle motions into consideration. Data-driven method learns to predict the outlet tobacco moisture by investigating the correlations among measurements in the industrial environment, and gives the most accurate and precise results we have so far. However, the model is likely to fail once the manufacturing conditions are changed. </p>
+<p>Model integration is a possible next-step for this project, where a strategy to post-process the results given by our models is studied. It can be as simple as finding the mean of these values; or as complicated as training neural networks that predicts on the weights to be assigned to each model and eventually calculate the weighted average as the final result. Moreover, the cross-validation between the established models can provide more comprehensive examinations on the capability of the models developed from each direction. The existing data we have only varies within a small margin, while cross-validation extrapolates the manufacturing conditions to a broader range. Though we are not able to finish this part within the time span of the project, it is genuinely an interesting field to exploit as future work.</p>
+<p>The figure below demonstrates our rough idea on how our modeling work could contribute to product quality improvements by optimizing the manufacturing process. The digital twin models can provide a platform for the vast searching and trials among the rational range of inputs and controllable variables. Each of these models will be assigned to a weight as described above, thus the outlet tobacco moisture content can be calculated under every given condition. The data recording the conditions and corresponding results will form a dictionary, which can be referred to when the input variables and target output moisture content are known. In this way, the optimal values of the controllable variables can be found, and eventually deployed to lower-level controllers to confine the outlet tobacco moisture content within a small error margin.</p>
+<p><img src="/2020/08/15/digital-twin-model/Picture9.png" alt="Model integration and future efforts."><span class="image-caption">Model integration and future efforts.</span></p>
+<h1 id="Conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions"></a>Conclusions</h1><p>Our project aims to create digital twin models for the tobacco drying process, a task rarely explored by either the industry or the academia. Referring to the existing methods that have been adopted in related industries, we propose three approaches: first-principle modeling, data-driven modeling, and finite element analysis. From the perspectives of first principle based modeling, FEA, and data-driven modeling, discrete element method, 2-D FEA, and LSTM network demonstrate the best compatibility to the design requirements respectively. We therefore adopt the selected approaches to develop our final design. All of the three models reach satisfying relative errors (7.03% for first-principle, 9.45% for FEA, and 0.11% for data-driven) that is lower than the engineering specifications. However, each of the three models also has its own limitations, e.g. the FEA simulation makes significant simplifications and there is unsolved problem related to heat transfer in first-principle based modeling. Further improvements are needed and assembling the three models to reach a more reliable model will be an interesting future work. In summary, our project meets the main requirements of developing accurate models for tobacco drying process using three distinct methods.</p>
+<p>Our major contribution in this project is to build up a framework for drying process modeling in tobacco industry. To the best of our knowledge, there is no existing work that provide a systematic view of the drying modeling using the three proposed methods. Our work can therefore provide reference for future drying process modeling. The methods we used can be extended to other drying process such as the modeling of the moisture change of tobacco bulk. </p>
+<h1 id="Acknowledgements"><a href="#Acknowledgements" class="headerlink" title="Acknowledgements"></a>Acknowledgements</h1><p>We would like to acknowledge our sponsor Zhiqi Zhu from AIMS, and instructors Shouhang Bo, Mian Li, Chong Han, and Jigang Wu from SJTU-JI for their kind help along the way. They have faced with more obstacles than us during this semester while still provided our team with timely suggestions during lectures and meetings. Even though the modeling project requires a large amount of knowledge basis on fluid dynamics and thermodynamics, which most of us are not familiar with, we learnt a lot from this project and on how to overcome challenges. We would like to extend our gratitude to every team member’s contribution and to sponsor’s and instructors’ support.</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/dynamics/" rel="tag"># dynamics</a>
+              <a href="/tags/modeling/" rel="tag"># modeling</a>
+              <a href="/tags/fea/" rel="tag"># FEA</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/05/19/mfly/" rel="prev" title="SAE Aero Design East (M-Fly Aerodynamics Sub-team)">
+      <i class="fa fa-chevron-left"></i> SAE Aero Design East (M-Fly Aerodynamics Sub-team)
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Goal"><span class="nav-number">1.</span> <span class="nav-text">Goal</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Requirements-amp-Engineering-Specifications"><span class="nav-number">2.</span> <span class="nav-text">Requirements &amp; Engineering Specifications</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Concept-Generation"><span class="nav-number">3.</span> <span class="nav-text">Concept Generation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Final-Design"><span class="nav-number">4.</span> <span class="nav-text">Final Design</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#First-Principle-Based-Method"><span class="nav-number">4.1.</span> <span class="nav-text">First Principle Based Method</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Finite-Element-Analysis-Method"><span class="nav-number">4.2.</span> <span class="nav-text">Finite Element Analysis Method</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Data-driven-Methods"><span class="nav-number">4.3.</span> <span class="nav-text">Data-driven Methods</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#General-Validation-Process"><span class="nav-number">5.</span> <span class="nav-text">General Validation Process</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Performance-by-simulation"><span class="nav-number">6.</span> <span class="nav-text">Performance (by simulation)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Future-Improvements"><span class="nav-number">7.</span> <span class="nav-text">Future Improvements</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#First-Principle-Based-Method-1"><span class="nav-number">7.1.</span> <span class="nav-text">First Principle Based Method</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Finite-Element-Analysis-Method-1"><span class="nav-number">7.2.</span> <span class="nav-text">Finite Element Analysis Method</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Data-driven-Method"><span class="nav-number">7.3.</span> <span class="nav-text">Data-driven Method</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Model-Integration-and-Future-Efforts"><span class="nav-number">8.</span> <span class="nav-text">Model Integration and Future Efforts</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Conclusions"><span class="nav-number">9.</span> <span class="nav-text">Conclusions</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Acknowledgements"><span class="nav-number">10.</span> <span class="nav-text">Acknowledgements</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Lejun (Harald) Jiang 姜乐钧"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Lejun (Harald) Jiang 姜乐钧</p>
+  <div class="site-description" itemprop="description"><font size="0.9"> Actively exploring Engineering & Photography </font></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://www.linkedin.com/in/lejun-jiang-a60274174/" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;lejun-jiang-a60274174&#x2F;" rel="noopener" target="_blank"><i class="fab fa-linkedin fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:lejunj98@gmail.com" title="E-Mail → mailto:lejunj98@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://github.com/LejunJiang" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;LejunJiang"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/lejun.jiang" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;lejun.jiang" rel="noopener" target="_blank"><i class="fab fa-facebook fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/LejunJ" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;LejunJ" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lejun Jiang</span>
+</div>
+
+        
+
+
+
+
+
+
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"XFbSRBUfnaxqjtl8k3vggEAA-MdYXbMMI","app_key":"VcRyyK4ax9w9U3q6h0muOF7A","server_url":null,"security":true};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://lejunjiang.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://github.com/LejunJiang/LejunJiang.github.io.git/2020/08/15/digital-twin-model/";
+    this.page.identifier = "2020/08/15/digital-twin-model/";
+    this.page.title = "Creating Digital Twin Models for Tobacco Drying Processes";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://lejunjiang.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</body>
+</html>
