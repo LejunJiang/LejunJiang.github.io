@@ -30,13 +30,31 @@
     
     
     <entry>
-      <title>f1tenth-lab-3</title>
-      <link href="/2021/01/29/f1tenth-lab-3/"/>
-      <url>/2021/01/29/f1tenth-lab-3/</url>
+      <title>F1Tenth Autonomous Racing Cars - Lab 3 (Wall Following with PID Controller)</title>
+      <link href="/2021/01/27/f1tenth-lab-3/"/>
+      <url>/2021/01/27/f1tenth-lab-3/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<p>During the Spring 2021 semester, I joined the <a href="https://f1tenth.org/" target="_blank" rel="noopener">F1Tenth</a> team at Penn to conduct an interest project on multi-vehicle coordination. To get prepared for the project, I self-learned and completed Lab 1, 2, 3, 4, and 6 of <a href="https://f1tenth-coursekit.readthedocs.io/en/stable/introduction/overview.html" target="_blank" rel="noopener">the “F1Tenth” course</a>. This post contains my results for Lab 3, where a PID controller for wall following is implemented for the race car so that it can follow the inner walls of the Levine Hall and complete a loop smoothly. See the video below for a demonstration of the wall follower:</p><iframe width="560" height="315" src="https://www.youtube.com/embed/ekBrxg6qInY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>I calculated the vehicle’s distance to the wall from its 2d-lidar scan information, then applied PID control to its steering wheels to maintain the desired distance. I introduced a “distance delay” in order to account for time delay between perception and control. More technical details can be found in the below prompt document:</p><div class="pdfobject-container" data-target="/2021/01/27/f1tenth-lab-3/lab3.pdf" data-height="800px"></div><p>However, given the nature of a single PID controller, I have to tune the parameter precisely so that the car can complete a loop. If the parameters are not well tuned, it is very likely that the controller would fail in some edge cases. See the failed case here:</p><iframe width="560" height="315" src="https://www.youtube.com/embed/SyDFcUtW0Jw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>In fact, even if the parameters have been well tuned, this simple controller could still fail in some extreme cases. Therefore, I am going to explore more sophisticated Planning and Control methods in the future labs.</p><p>My code implementations for this lab can be found on github through <a href="https://github.com/LejunJiang/F1Tenth/tree/main/Lejun_Jiang_ws/src/lejun_jiang_roslab_3">this link</a>.</p>]]></content>
       
       
+      <categories>
+          
+          <category> Projects </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> control system </tag>
+            
+            <tag> F1Tenth </tag>
+            
+            <tag> autonomous driving </tag>
+            
+            <tag> ROS </tag>
+            
+        </tags>
       
     </entry>
     
@@ -47,7 +65,7 @@
       <link href="/2021/01/26/f1tenth-lab-2/"/>
       <url>/2021/01/26/f1tenth-lab-2/</url>
       
-        <content type="html"><![CDATA[<p>During the Spring 2021 semester, I joined the <a href="https://f1tenth.org/" target="_blank" rel="noopener">F1Tenth</a> team at Penn to conduct an interest project on multi-vehicle coordination. To get prepared for the project, I self-learned and completed Lab 1, 2, 3, 4, and 6 of <a href="https://f1tenth-coursekit.readthedocs.io/en/stable/introduction/overview.html" target="_blank" rel="noopener">the “F1Tenth” course</a>. This post contains my results for Lab 2, where an automatic emergency brake is implemented for the race car so that it will be stopped before crashing into anything. See the video below for a demonstration of the automatic emergency brake:</p><iframe width="560" height="315" src="https://www.youtube.com/embed/Iot4X0vt1Fs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>I predicted the vehicle’s time to collision (TTC) with its current motion (from its odometry information) and its distance to obstacles (from the 2d-lidar scan information). The automatic emergency brake will stop the vehicle if the TTC is below a certain threshold. More technical details can be found in the below prompt document:</p><div class="pdfobject-container" data-target="/2021/01/25/f1tenth-lab-2/lab2.pdf" data-height="800px"></div><p>My code implementations for this lab can be found on github through <a href="https://github.com/LejunJiang/F1Tenth/tree/main/Lejun_Jiang_ws/src/lejun_jiang_roslab_2">this link</a>.</p>]]></content>
+        <content type="html"><![CDATA[<p>During the Spring 2021 semester, I joined the <a href="https://f1tenth.org/" target="_blank" rel="noopener">F1Tenth</a> team at Penn to conduct an interest project on multi-vehicle coordination. To get prepared for the project, I self-learned and completed Lab 1, 2, 3, 4, and 6 of <a href="https://f1tenth-coursekit.readthedocs.io/en/stable/introduction/overview.html" target="_blank" rel="noopener">the “F1Tenth” course</a>. This post contains my results for Lab 2, where an automatic emergency brake is implemented for the race car so that it will be stopped before crashing into anything. See the video below for a demonstration of the automatic emergency brake:</p><iframe width="560" height="315" src="https://www.youtube.com/embed/Iot4X0vt1Fs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>I predicted the vehicle’s time to collision (TTC) with its current motion (from its odometry information) and its distance to obstacles (from the 2d-lidar scan information). The automatic emergency brake will stop the vehicle if the TTC is below a certain threshold. More technical details can be found in the below prompt document:</p><div class="pdfobject-container" data-target="/2021/01/26/f1tenth-lab-2/lab2.pdf" data-height="800px"></div><p>My code implementations for this lab can be found on github through <a href="https://github.com/LejunJiang/F1Tenth/tree/main/Lejun_Jiang_ws/src/lejun_jiang_roslab_2">this link</a>.</p>]]></content>
       
       
       <categories>
