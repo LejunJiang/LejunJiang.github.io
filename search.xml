@@ -43,6 +43,64 @@
     
     
     <entry>
+      <title>F1Tenth Autonomous Racing Cars - Lab 2 (Automatic Emergency Braking)</title>
+      <link href="/2021/01/26/f1tenth-lab-2/"/>
+      <url>/2021/01/26/f1tenth-lab-2/</url>
+      
+        <content type="html"><![CDATA[<p>During the Spring 2021 semester, I joined the <a href="https://f1tenth.org/" target="_blank" rel="noopener">F1Tenth</a> team at Penn to conduct an interest project on multi-vehicle coordination. To get prepared for the project, I self-learned and completed Lab 1, 2, 3, 4, and 6 of <a href="https://f1tenth-coursekit.readthedocs.io/en/stable/introduction/overview.html" target="_blank" rel="noopener">the “F1Tenth” course</a>. This post contains my results for Lab 2, where an automatic emergency brake is implemented for the race car so that it will be stopped before crashing into anything. See the video below for a demonstration of the automatic emergency brake:</p><iframe width="560" height="315" src="https://www.youtube.com/embed/Iot4X0vt1Fs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>I predicted the vehicle’s time to collision (TTC) with its current motion (from its odometry information) and its distance to obstacles (from the 2d-lidar scan information). The automatic emergency brake will stop the vehicle if the TTC is below a certain threshold. More technical details can be found in the below prompt document:</p><div class="pdfobject-container" data-target="/2021/01/25/f1tenth-lab-2/lab2.pdf" data-height="800px"></div><p>My code implementations for this lab can be found on github through <a href="https://github.com/LejunJiang/F1Tenth/tree/main/Lejun_Jiang_ws/src/lejun_jiang_roslab_2">this link</a>.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Projects </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> F1Tenth </tag>
+            
+            <tag> autonomous driving </tag>
+            
+            <tag> ROS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>F1Tenth Autonomous Racing Cars - Lab 1 (Introduction to ROS)</title>
+      <link href="/2021/01/25/f1tenth-lab-1/"/>
+      <url>/2021/01/25/f1tenth-lab-1/</url>
+      
+        <content type="html"><![CDATA[<p>During the Spring 2021 semester, I joined the <a href="https://f1tenth.org/" target="_blank" rel="noopener">F1Tenth</a> team at Penn to conduct an interest project on multi-vehicle coordination. To get prepared for the project, I self-learned and completed Lab 1, 2, 3, 4, and 6 of <a href="https://f1tenth-coursekit.readthedocs.io/en/stable/introduction/overview.html" target="_blank" rel="noopener">the “F1Tenth” course</a>. This post contains my results for Lab 1, where the general concepts of ROS are discussed and explored.</p><p>The prompt document for this lab can be found below:</p><div class="pdfobject-container" data-target="/2021/01/25/f1tenth-lab-1/lab1.pdf" data-height="800px"></div><p>Here are my answers to the questions:</p><div class="pdfobject-container" data-target="/2021/01/25/f1tenth-lab-1/Lab1_Lejun_Jiang.pdf" data-height="800px"></div><p>My code implementations for this lab can be found on github through <a href="https://github.com/LejunJiang/F1Tenth/tree/main/Lejun_Jiang_ws/src/lejun_jiang_roslab">this link</a>.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Projects </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> F1Tenth </tag>
+            
+            <tag> autonomous driving </tag>
+            
+            <tag> ROS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Island Beach State Park, New Jersey, USA, 2021 Winter Break Trip</title>
       <link href="/2021/01/17/island-beach-park/"/>
       <url>/2021/01/17/island-beach-park/</url>
@@ -86,9 +144,9 @@
       
         <tags>
             
-            <tag> computer vision </tag>
-            
             <tag> autonomous driving </tag>
+            
+            <tag> computer vision </tag>
             
             <tag> perception </tag>
             
