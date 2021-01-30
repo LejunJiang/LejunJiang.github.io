@@ -27,14 +27,17 @@
 <meta property="og:site_name" content="Lejun&#39;s Blog">
 <meta property="og:description" content="During the Spring 2021 semester, I joined the F1Tenth team at Penn to conduct an interest project on multi-vehicle coordination. To get prepared for the project, I self-learned and completed Lab 1, 2,">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://github.com/2021/01/27/f1tenth-lab-3/pid_1.JPG">
+<meta property="og:image" content="https://github.com/2021/01/27/f1tenth-lab-3/pid_2.JPG">
 <meta property="article:published_time" content="2021-01-27T20:01:57.000Z">
-<meta property="article:modified_time" content="2021-01-30T20:17:24.776Z">
+<meta property="article:modified_time" content="2021-01-30T22:06:36.475Z">
 <meta property="article:author" content="Lejun (Harald) Jiang 姜乐钧">
 <meta property="article:tag" content="control system">
 <meta property="article:tag" content="F1Tenth">
 <meta property="article:tag" content="autonomous driving">
 <meta property="article:tag" content="ROS">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github.com/2021/01/27/f1tenth-lab-3/pid_1.JPG">
 
 <link rel="canonical" href="https://github.com/LejunJiang/LejunJiang.github.io.git/2021/01/27/f1tenth-lab-3/">
 
@@ -234,7 +237,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-01-30 15:17:24" itemprop="dateModified" datetime="2021-01-30T15:17:24-05:00">2021-01-30</time>
+                <time title="Modified: 2021-01-30 17:06:36" itemprop="dateModified" datetime="2021-01-30T17:06:36-05:00">2021-01-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -282,7 +285,11 @@
 <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p>This post contains my results for Lab 3, where a PID controller for wall following is implemented for the race car so that it can follow the inner walls of the Levine Hall and complete a loop smoothly. See the video below for a demonstration of the wall follower:</p>
 <h1 id="Demonstration"><a href="#Demonstration" class="headerlink" title="Demonstration"></a>Demonstration</h1><iframe width="560" height="315" src="https://www.youtube.com/embed/ekBrxg6qInY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<h1 id="Procedure"><a href="#Procedure" class="headerlink" title="Procedure"></a>Procedure</h1><p>I calculated the vehicle’s distance to the wall from its 2d-lidar scan information, then applied PID control to its steering wheels to maintain the desired distance. I introduced a “distance delay” in order to account for time delay between perception and control. More technical details can be found in the below prompt document:</p>
+<h1 id="Procedure"><a href="#Procedure" class="headerlink" title="Procedure"></a>Procedure</h1><p>I calculated the vehicle’s distance to the wall from its 2d-lidar scan information, this is done by using the 2d-lidar scan data from two directions as shown below:</p>
+<p><img src="/2021/01/27/f1tenth-lab-3/pid_1.JPG" alt="Calculation of vehicle&#39;s distance to the wall"><span class="image-caption">Calculation of vehicle&#39;s distance to the wall</span></p>
+<p>I then applied PID control to its steering wheels to maintain the desired distance.</p>
+<p><img src="/2021/01/27/f1tenth-lab-3/pid_2.JPG" alt></p>
+<p>where the error term e(t) is the difference between the desired wall distance and the actual wall distance calculated previously. I also introduced a “distance delay” in order to account for time delay between perception and control. More technical details can be found in the below prompt document:</p>
 <div class="pdfobject-container" data-target="/2021/01/27/f1tenth-lab-3/lab3.pdf" data-height="800px"></div>
 
 <p>However, given the nature of a single PID controller, I have to tune the parameter precisely so that the car can complete a loop. If the parameters are not well tuned, it is very likely that the controller would fail in some edge cases. See the failed case here:</p>

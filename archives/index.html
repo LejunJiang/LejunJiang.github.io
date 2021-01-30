@@ -460,7 +460,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-01-30 15:17:24" itemprop="dateModified" datetime="2021-01-30T15:17:24-05:00">2021-01-30</time>
+                <time title="Modified: 2021-01-30 17:06:36" itemprop="dateModified" datetime="2021-01-30T17:06:36-05:00">2021-01-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -508,7 +508,11 @@
 <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p>This post contains my results for Lab 3, where a PID controller for wall following is implemented for the race car so that it can follow the inner walls of the Levine Hall and complete a loop smoothly. See the video below for a demonstration of the wall follower:</p>
 <h1 id="Demonstration"><a href="#Demonstration" class="headerlink" title="Demonstration"></a>Demonstration</h1><iframe width="560" height="315" src="https://www.youtube.com/embed/ekBrxg6qInY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<h1 id="Procedure"><a href="#Procedure" class="headerlink" title="Procedure"></a>Procedure</h1><p>I calculated the vehicle’s distance to the wall from its 2d-lidar scan information, then applied PID control to its steering wheels to maintain the desired distance. I introduced a “distance delay” in order to account for time delay between perception and control. More technical details can be found in the below prompt document:</p>
+<h1 id="Procedure"><a href="#Procedure" class="headerlink" title="Procedure"></a>Procedure</h1><p>I calculated the vehicle’s distance to the wall from its 2d-lidar scan information, this is done by using the 2d-lidar scan data from two directions as shown below:</p>
+<p><img src="/2021/01/27/f1tenth-lab-3/pid_1.JPG" alt="Calculation of vehicle&#39;s distance to the wall"><span class="image-caption">Calculation of vehicle&#39;s distance to the wall</span></p>
+<p>I then applied PID control to its steering wheels to maintain the desired distance.</p>
+<p><img src="/2021/01/27/f1tenth-lab-3/pid_2.JPG" alt></p>
+<p>where the error term e(t) is the difference between the desired wall distance and the actual wall distance calculated previously. I also introduced a “distance delay” in order to account for time delay between perception and control. More technical details can be found in the below prompt document:</p>
 <div class="pdfobject-container" data-target="/2021/01/27/f1tenth-lab-3/lab3.pdf" data-height="800px"></div>
 
 <p>However, given the nature of a single PID controller, I have to tune the parameter precisely so that the car can complete a loop. If the parameters are not well tuned, it is very likely that the controller would fail in some edge cases. See the failed case here:</p>
@@ -567,7 +571,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-01-30 15:18:01" itemprop="dateModified" datetime="2021-01-30T15:18:01-05:00">2021-01-30</time>
+                <time title="Modified: 2021-01-30 16:54:37" itemprop="dateModified" datetime="2021-01-30T16:54:37-05:00">2021-01-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -615,7 +619,10 @@
 <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p>This post contains my results for Lab 2, where an automatic emergency brake is implemented for the race car so that it will be stopped before crashing into anything. See the video below for a demonstration of the automatic emergency brake:</p>
 <h1 id="Demonstration"><a href="#Demonstration" class="headerlink" title="Demonstration"></a>Demonstration</h1><iframe width="560" height="315" src="https://www.youtube.com/embed/Iot4X0vt1Fs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<h1 id="Procedure"><a href="#Procedure" class="headerlink" title="Procedure"></a>Procedure</h1><p>I predicted the vehicle’s time to collision (TTC) with its current motion (from its odometry information) and its distance to obstacles (from the 2d-lidar scan information). The automatic emergency brake will stop the vehicle if the TTC is below a certain threshold. More technical details can be found in the below prompt document:</p>
+<h1 id="Procedure"><a href="#Procedure" class="headerlink" title="Procedure"></a>Procedure</h1><p>I predicted the vehicle’s time to collision (TTC) in all directions with its current motion (from its odometry information) and its distance to obstacles (from the 2d-lidar scan information). The automatic emergency brake will stop the vehicle if the minimum TTC is below a certain threshold. The slides below shows the equation for calculating TTC:</p>
+<p><img src="/2021/01/26/f1tenth-lab-2/ttc_1.JPG" alt></p>
+<p><img src="/2021/01/26/f1tenth-lab-2/ttc_2.JPG" alt></p>
+<p>More technical details can be found in the below prompt document:</p>
 <div class="pdfobject-container" data-target="/2021/01/26/f1tenth-lab-2/lab2.pdf" data-height="800px"></div>
 
 <p>My source codes for this lab can be found on github through <a href="https://github.com/LejunJiang/F1Tenth/tree/main/Lejun_Jiang_ws/src/lejun_jiang_roslab_2">this link</a>.</p>
