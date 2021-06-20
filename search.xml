@@ -4,6 +4,72 @@
   
     
     <entry>
+      <title>Quadrotors Minimum Snap Trajectory Generation and Control for Obstacle Avoidance</title>
+      <link href="/2021/06/20/minimum-snap-trajectory/"/>
+      <url>/2021/06/20/minimum-snap-trajectory/</url>
+      
+        <content type="html"><![CDATA[<p>This is the open-ended final project I conducted for the course ESE 650 “Learning in Robotics” at the University of Pennsylvania. My collaborator on this project is Zhihao Ruan.</p><p>For the demonstration of results for this project, please see the following video:</p><iframe width="560" height="315" src="https://www.youtube.com/embed/0x5F62tEHWI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>More technical information is introduced in this report:</p><div class="pdfobject-container" data-target="/2021/06/20/minimum-snap-trajectory/ESE650_Final_Project.pdf" data-height="800px"></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> Projects </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> control system </tag>
+            
+            <tag> planning </tag>
+            
+            <tag> autonomous drone </tag>
+            
+            <tag> optimization </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>F1Tenth Autonomous Racing Cars Independent Study Project - Multi-Vehicle Coordination for Overtaking Maneuvers</title>
+      <link href="/2021/06/20/%C2%96%C2%96multi-vehicle-coordination/"/>
+      <url>/2021/06/20/%C2%96%C2%96multi-vehicle-coordination/</url>
+      
+        <content type="html"><![CDATA[<p>During the Spring 2021 semester, I joined the <a href="https://f1tenth.org/" target="_blank" rel="noopener">F1Tenth</a> team at Penn to conduct an interest project on multi-vehicle coordination. My collaborator on this project is Wesley Yee.</p><p>For the details and results of this project, please refer to the following report:</p><div class="pdfobject-container" data-target="/2021/06/20/multi-vehicle-coordination/multi-vehicle-coordination.pdf" data-height="800px"></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> Projects </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> control system </tag>
+            
+            <tag> F1Tenth </tag>
+            
+            <tag> autonomous driving </tag>
+            
+            <tag> planning </tag>
+            
+            <tag> optimization </tag>
+            
+            <tag> multi agent coordination </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>F1Tenth Autonomous Racing Cars - Lab 7 (RRT and RRT*)</title>
       <link href="/2021/02/20/f1tenth-lab-7/"/>
       <url>/2021/02/20/f1tenth-lab-7/</url>
